@@ -11,21 +11,22 @@
 <body>
     <?php
         session_start();
-        $myfile = fopen("../keyValuePairs.txt", "r") or die("Unable to open file!");
-        $data = fread($myfile,filesize("../keyValuePairs.txt"));
-        $data = explode("\n", $data);
-        foreach ($data as $s) {
-            $line = explode("=", $s);
-            if (substr($line[0], 0, 2) == "is") {
-                $_SESSION[$line[0]] = ($line[1] == "true" ? true : false);
-            } else if (is_numeric($line[1])) {
-                $_SESSION[$line[0]] = (is_int($line[1]) ? intval($line[1]) : doubleval($line[1]));
-            } else {
-                $_SESSION[$line[0]] = $line[1];
+        if (!isset($_SESSION['isLightsOn'])) {
+            $myfile = fopen("../keyValuePairs.txt", "r") or die("Unable to open file!");
+            $data = fread($myfile,filesize("../keyValuePairs.txt"));
+            $data = explode("\n", $data);
+            foreach ($data as $s) {
+                $line = explode("=", $s);
+                if (substr($line[0], 0, 2) == "is") {
+                    $_SESSION[$line[0]] = ($line[1] == "true" ? true : false);
+                } else if (is_numeric($line[1])) {
+                    $_SESSION[$line[0]] = (is_int($line[1]) ? intval($line[1]) : doubleval($line[1]));
+                } else {
+                    $_SESSION[$line[0]] = $line[1];
+                }
             }
-            
+            fclose($myfile);
         }
-        fclose($myfile);
     ?>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -69,7 +70,7 @@
                 <?php echo '<img src="' . ($_SESSION['isLightsOn'] ? "./images/lightsOn.png" : "./images/lightsOff.png") . '" class="card-img-top" alt="..." height="235">' ?>
                 <div class="card-body">
                     <h5 class="card-title">Switch Lights</h5>
-                    <p class="card-text">You can switch lights on and off from here.</p>
+                    <?php echo '<p class="card-text">You can switch lights on and off from here. It\'s <b>' . ($_SESSION['isLightsOn'] ? "on" : "off") . '</b> now.</p>' ?>
                     <form method="post">
                         <input class="btn btn-primary" type="submit" value="Open Lights" name="lightsOnButton">
                         <input class="btn btn-primary" type="submit" value="Close Lights" name="lightsOffButton">
@@ -82,9 +83,11 @@
                 <?php echo '<img src="./images/lightBrightness.png" class="card-img-top" alt="..." height="235" style="opacity:'. $_SESSION['lightBrightness'] . '">' ?>
                 <div class="card-body">
                     <h5 class="card-title">Control Light Brightness</h5>
-                    <p class="card-text">Opacity of this image will change.</p>
-                    <input class="btn btn-primary" type="submit" value="Decrease" name="">
-                    <input class="btn btn-primary" type="submit" value="Increase" name="">
+                    <?php echo '<p class="card-text">Opacity of this image will change. Brightness: <b>' . $_SESSION['lightBrightness'] . '</b></p>' ?>
+                    <form method="post">
+                        <input class="btn btn-primary" type="submit" value="Decrease" name="lightBrightnessDecrease">
+                        <input class="btn btn-primary" type="submit" value="Increase" name="lightBrightnessIncrease">
+                    </form>
                 </div>
             </div>
         </div>
@@ -284,15 +287,18 @@
     <?php
         if (isset($_POST["lightsOnButton"]))
         {
-            echo "Lights are opened";
             $_SESSION['isLightsOn'] = true;
         }
         if (isset($_POST["lightsOffButton"]))
         {
-            echo "Lights are closed";
             $_SESSION['isLightsOn'] = false;
         }
-
+        if (isset($_POST['lightBrightnessIncrease'])) {
+            $_SESSION['lightBrightness'] = $_SESSION['lightBrightness'] + 0.1; 
+        }
+        if (isset($_POST['lightBrightnessDecrease'])) {
+            $_SESSION['lightBrightness'] = $_SESSION['lightBrightness'] - 0.1; 
+        }
 
 
         $myfile = fopen("../keyValuePairs.txt", "w");
