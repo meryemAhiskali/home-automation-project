@@ -1,5 +1,5 @@
 isLightsOn=true
-temperature=36
+temperature=31
 isAcOn=true
 lightBrightness=1
 waterLevel=87

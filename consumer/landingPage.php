@@ -122,24 +122,28 @@
 
     <div class="row mx-3">
         <div class="col mb-3 mb-sm-0">
-            <div class="card">
-                <img src="./images/temperature.png" class="card-img-top" alt="..." height="235">
+            <div class="card" id="temperature">
+                <img src="./images/temperature.png" class="card-img-top" alt="Temperature image" height="235">
                 <div class="card-body">
                     <h5 class="card-title">Temperature</h5>
                     <?php echo '<p class="card-text">House temperature is <b>' . $_SESSION['temperature'] . 'C.</b></p>' ?>
-                    <input class="btn btn-primary" type="submit" value="Heat up" name="">
-                    <input class="btn btn-primary" type="submit" value="Cool down" name="">
+                    <form action= "#temperature" method="post">
+                        <input class="btn btn-primary" type="submit" value="Heat up" name="temperatureUpButton">
+                        <input class="btn btn-primary" type="submit" value="Cool down" name="temperatureDownButton">
+                    </form>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card" id="airConditioning">
                 <?php echo '<img src="' . ($_SESSION['isAcOn'] ? "./images/workingFan.gif" : "./images/stoppedFan.png") . '" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">' ?>
                 <div class="card-body">
                     <h5 class="card-title">Air Conditioning</h5>
                     <p class="card-text">You can turn on/off AC.</p>
-                    <input class="btn btn-primary" type="submit" value="Turn On" name="">
-                    <input class="btn btn-primary" type="submit" value="Turn Off" name="">
+                    <form action="#airConditioning" method="post">
+                        <input class="btn btn-primary" type="submit" value="Turn On" name="acOnButton">
+                        <input class="btn btn-primary" type="submit" value="Turn Off" name="acOffButton">
+                    </form>
                 </div>
             </div>
         </div>
@@ -311,7 +315,19 @@
         if (isset($_POST['windowBlindOffButton'])) {
             $_SESSION['isWindowBlindOn'] = false;
         }
-
+        if (isset($_POST['temperatureUpButton'])) {
+            $_SESSION['temperature'] = $_SESSION['temperature'] + 1; 
+        }
+        if (isset($_POST['temperatureDownButton'])) {
+            $_SESSION['temperature'] = $_SESSION['temperature'] - 1; 
+        }
+        if (isset($_POST['acOnButton'])) {
+            $_SESSION['isAcOn'] = true; 
+        }
+        if (isset($_POST['acOffButton'])) {
+            $_SESSION['isAcOn'] = false; 
+        }
+        
 
         $myfile = fopen("../keyValuePairs.txt", "w");
         fwrite($myfile, ($_SESSION['isLightsOn'] ? "isLightsOn=true" : "isLightsOn=false") . "\n" . 
