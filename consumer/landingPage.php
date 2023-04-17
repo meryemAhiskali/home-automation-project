@@ -294,10 +294,14 @@
             $_SESSION['isLightsOn'] = false;
         }
         if (isset($_POST['lightBrightnessIncrease'])) {
-            $_SESSION['lightBrightness'] = $_SESSION['lightBrightness'] + 0.1; 
+            if ($_SESSION['lightBrightness'] < 0.9) {
+                $_SESSION['lightBrightness'] = $_SESSION['lightBrightness'] + 0.1;
+            }
         }
         if (isset($_POST['lightBrightnessDecrease'])) {
-            $_SESSION['lightBrightness'] = $_SESSION['lightBrightness'] - 0.1; 
+            if ($_SESSION['lightBrightness'] > 0.1) {
+                $_SESSION['lightBrightness'] = $_SESSION['lightBrightness'] - 0.1;
+            } 
         }
 
 

@@ -1,7 +1,7 @@
 isLightsOn=true
 temperature=36
 isAcOn=true
-lightBrightness=0.6
+lightBrightness=1
 waterLevel=87
 isWindowBlindOn=true
 fanSpeed=335
