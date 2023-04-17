@@ -258,8 +258,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Fan Speed</h5>
                     <?php echo '<p class="card-text">Fan speed is <b>' . $_SESSION['fanSpeed'] . 'RPMs</b>.</p>' ?>
-                    <input class="btn btn-primary" type="submit" value="Open"  name="">
-                    <input class="btn btn-primary" type="submit" value="Close" name="">
+                    <input class="btn btn-primary" type="submit" value="Increase"  name="">
+                    <input class="btn btn-primary" type="submit" value="Decrease" name="">
                 </div>
             </div>
         </div>
