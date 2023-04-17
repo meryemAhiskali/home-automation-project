@@ -109,8 +109,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Control Window Blinds</h5>
                     <p class="card-text">You can control them anytime you want.</p>
-                    <input class="btn btn-primary" type="submit" value="Open" name="">
-                    <input class="btn btn-primary" type="submit" value="Close" name="">
+                    <form method="post">
+                        <input class="btn btn-primary" type="submit" value="Open" name="windowBlindOnButton">
+                        <input class="btn btn-primary" type="submit" value="Close" name="windowBlindOffButton">
+                    </form>
                 </div>
             </div>
         </div>
@@ -302,6 +304,12 @@
             if ($_SESSION['lightBrightness'] > 0.1) {
                 $_SESSION['lightBrightness'] = $_SESSION['lightBrightness'] - 0.1;
             } 
+        }
+        if (isset($_POST['windowBlindOnButton'])) {
+            $_SESSION['isWindowBlindOn'] = true;
+        }
+        if (isset($_POST['windowBlindOffButton'])) {
+            $_SESSION['isWindowBlindOn'] = false;
         }
 
 
