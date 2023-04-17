@@ -70,8 +70,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Switch Lights</h5>
                     <p class="card-text">You can switch lights on and off from here.</p>
-                    <input class="btn btn-primary" type="submit" value="Open Lights" name="lightsOnButton">
-                    <input class="btn btn-primary" type="submit" value="Close Lights" name="lightsOffButton">
+                    <form method="post">
+                        <input class="btn btn-primary" type="submit" value="Open Lights" name="lightsOnButton">
+                        <input class="btn btn-primary" type="submit" value="Close Lights" name="lightsOffButton">
+                    </form>
                 </div>
             </div>
         </div>
@@ -255,10 +257,9 @@
                 <img src="./images/fanSpeed.png" class="card-img-top" alt="..." height="235" style="object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Fan Speed</h5>
-                    <?php echo '<p class="card-text">Fan speed is <b>' . $_SESSION['fanSpeed'] . ' RPMs</b>.</p>' ?>
-                    <!-- TO GIVE SOME SPACE -->
-                    <div class="mb-5"></div>
-                    <!-- TO GIVE SOME SPACE -->
+                    <?php echo '<p class="card-text">Fan speed is <b>' . $_SESSION['fanSpeed'] . 'RPMs</b>.</p>' ?>
+                    <input class="btn btn-primary" type="submit" value="Open"  name="">
+                    <input class="btn btn-primary" type="submit" value="Close" name="">
                 </div>
             </div>
         </div>
