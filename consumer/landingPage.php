@@ -107,7 +107,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Air Conditioning</h5>
                     <p class="card-text">You can turn on/off AC.</p>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <form action="#airConditioning" method="post">
                         <input class="btn btn-primary" type="submit" value="Turn On" name="acOnButton">
                         <input class="btn btn-primary" type="submit" value="Turn Off" name="acOffButton">
                     </form>
@@ -115,7 +115,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card" id="airQuality">
                 <img src="./images/airPollution.png" class="card-img-top" alt="..." height="235">
                 <div class="card-body">
                     <h5 class="card-title">Air Quality</h5>
@@ -127,12 +127,12 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card" id="smartLock">
                 <?php echo '<img src="' . ($_SESSION['isSmartLocksLocked'] ? "./images/locked.png" : "./images/unlocked.png") . '" class="card-img-top" alt="..." height="235">' ?>
                 <div class="card-body">
                     <h5 class="card-title">Control Smart Locks</h5>
                     <p class="card-text">You can open/close your smart locks here.</p>
-                    <form action="" method="post">
+                    <form action="#smartLock" method="post">
                         <input class="btn btn-primary" type="submit" value="Lock" name="smartLocksLockedButton">
                         <input class="btn btn-primary" type="submit" value="Unlock" name="smartLocksUnlockedButton">
                     </form>
@@ -145,12 +145,12 @@
 
     <div class="row mx-3">
         <div class="col mb-3 mb-sm-0">
-            <div class="card">
+            <div class="card" id="coffeeMachine">
                 <img src="./images/coffeeMachine.png" class="card-img-top" alt="..." height="235" width="432" style="object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Coffee Machine</h5>
                     <?php echo '<p class="card-text">You can start your coffee machine before you arrive home. It\'s now <b>' . ($_SESSION['isCoffeeMachineStarted'] ? "started" : "stopped") .'</b>.</p>' ?>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <form action="coffeeMachine" method="post">
                         <input class="btn btn-primary" type="submit" value="Start" name="coffeeMachineStartedButton">
                         <input class="btn btn-primary" type="submit" value="Stop" name="coffeeMachineStoppedButton">
                     </form>
@@ -158,7 +158,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card" id="energyConsumption">
                 <img src="./images/energyConsumption.svg" class="card-img-top" alt="..." height="235">
                 <div class="card-body">
                     <h5 class="card-title">Energy Consumption</h5>
@@ -170,7 +170,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card" id="waterQuality">
                 <img src="./images/waterQuality.png" class="card-img-top" alt="..." height="235">
                 <div class="card-body">
                     <h5 class="card-title">Water Quality in Tank</h5>
@@ -182,12 +182,12 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card" id="waterTemperature">
                 <img src="./images/waterTemperature.png" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">
                 <div class="card-body">
                     <h5 class="card-title">Water Temperature in Tank</h5>
                     <?php echo '<p class="card-text">Your water tank is <b>' . $_SESSION['waterTemperature'] . 'C</b>.</p>' ?>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <form action="#waterTemperature" method="post">
                         <input class="btn btn-primary" type="submit" value="Heat Up" name="waterTemperatureIncreaseButton">
                         <input class="btn btn-primary" type="submit" value="Cool Down" name="waterTemperatureDecreaseButton">
                     </form>
@@ -224,12 +224,12 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card" id="emergencyAlert">
                 <?php echo '<img src="./images/' . ($_SESSION['isEmergency'] ? "emergency" : "nonEmergency") . '.png" class="card-img-top" alt="..." height="235" style="object-fit: contain">' ?>
                 <div class="card-body">
                     <h5 class="card-title">Emergency Alert</h5>
                     <?php echo '<p class="card-text">Emergency alert is ' . ($_SESSION['isEmergency'] ? "<b>ON</b>" : "<b>off</b>") . '.</p>' ?>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <form action="#emergencyAlert" method="post">
                         <input class="btn btn-primary" type="submit" value="Open" name="emergencyOnButton">
                         <input class="btn btn-primary" type="submit" value="Close" name="emergencyOffButton">
                     </form>
@@ -237,12 +237,12 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card" id="fanSpeed">
                 <img src="./images/fanSpeed.png" class="card-img-top" alt="..." height="235" style="object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Fan Speed</h5>
                     <?php echo '<p class="card-text">Fan speed is <b>' . $_SESSION['fanSpeed'] . 'RPMs</b>.</p>' ?>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <form action="#fanSpeed" method="post">
                     <input class="btn btn-primary" type="submit" value="Increase"  name="fanSpeedIncreaseButton">
                     <input class="btn btn-primary" type="submit" value="Decrease" name="fanSpeedDecreaseButton">
                     </form>
