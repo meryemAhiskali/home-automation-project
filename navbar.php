@@ -21,6 +21,9 @@
             <li class="nav-item ms-3">
                 <button type="button" class="btn btn-outline-dark">Language</button>
             </li>
+            <li class="nav-item mx-3">
+                <button type="button" class="btn btn-outline-dark">Log out</button>
+            </li>
         </ul>
         </div>
     </div>
