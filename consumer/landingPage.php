@@ -43,7 +43,7 @@
             <a class="nav-link active" aria-current="page" href="./landingPage.php"><b>Home</b></a>
             </li>
             <li class="nav-item mx-3">
-            <a class="nav-link" href="#"><b>Features</b></a>
+            <a class="nav-link" href="/home-automation-project/consumer/features.html"><b>Features</b></a>
             </li>
             <li class="nav-item mx-3">
             <a class="nav-link" href="#"><b>Pricing</b></a>
@@ -65,7 +65,7 @@
     <div class="my-5"></div><!-- to give some space -->
 
     <div class="row mx-3">
-        <h5>Please double click!</h5>
+        <h5>Please double click to make changes!</h5>
         <div class="col mb-3 mb-sm-0">
             <div class="card">
                 <?php echo '<img src="' . ($_SESSION['isLightsOn'] ? "./images/lightsOn.png" : "./images/lightsOff.png") . '" class="card-img-top" alt="..." height="235">' ?>
@@ -183,7 +183,7 @@
                 <img src="./images/coffeeMachine.png" class="card-img-top" alt="..." height="235" width="432" style="object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Coffee Machine</h5>
-                    <?php echo '<p class="card-text">You can start your coffee machine before you arrive home. It\'s now <b>' . ($_SESSION['isCoffeeMachineStarted'] ? "started" : "stopped") .'</b></p>' ?>
+                    <?php echo '<p class="card-text">You can start your coffee machine before you arrive home. It\'s now <b>' . ($_SESSION['isCoffeeMachineStarted'] ? "started" : "stopped") .'</b>.</p>' ?>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <input class="btn btn-primary" type="submit" value="Start" name="coffeeMachineStartedButton">
                         <input class="btn btn-primary" type="submit" value="Stop" name="coffeeMachineStoppedButton">

@@ -66,7 +66,7 @@
             <a class="nav-link active" aria-current="page" href="./landingPage.php"><b>Home</b></a>
             </li>
             <li class="nav-item mx-3">
-            <a class="nav-link" href="#"><b>Features</b></a>
+            <a class="nav-link" href="/home-automation-project/consumer/features.html"><b>Features</b></a>
             </li>
             <li class="nav-item mx-3">
             <a class="nav-link" href="#"><b>Pricing</b></a>
