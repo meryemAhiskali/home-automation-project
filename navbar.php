@@ -18,12 +18,6 @@
             <li class="nav-item mx-3">
             <a class="nav-link" href="/home-automation-project/pricing.php"><b>Pricing</b></a>
             </li>
-            <li class="nav-item mx-3">
-                <button type="button" class="btn btn-outline-dark">Logged in</button>
-            </li>
-            <li class="nav-item mx-3">
-                <button type="button" class="btn btn-outline-dark">Log out</button>
-            </li>
             <li class="nav-item ms-3">
                 <button type="button" class="btn btn-outline-dark">Language</button>
             </li>
