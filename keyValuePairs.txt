@@ -1,13 +1,13 @@
 isLightsOn=true
 temperature=30
 isAcOn=true
-lightBrightness=1
+lightBrightness=0.9
 waterLevel=87
 isWindowBlindOn=false
 fanSpeed=331
 indoorQuality=0.8
 isSmartLocksLocked=false
-isCoffeeMachineStarted=false
+isCoffeeMachineStarted=true
 energyConsumption=2100
 waterQuality=0.3
 waterTemperature=30
