@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <title>Landing Page</title>
 </head>
 <body>
@@ -48,135 +50,208 @@
         if (!isset($_SESSION['humidity'])) {$_SESSION['humidity'] = 0.3;}//percentages
         if (!isset($_SESSION['isEmergency'])) {$_SESSION['isEmergency'] = false;}
     ?>
-        <form method="POST">
-            <input type="submit" value="Lights On"   name="lightsOnButton"><br><br>
-            <input type="submit" value="Lights Off"  name="lightsOffButton"><br><br>
-            <input type="submit" value="Turn AC on"  name="acOnButton"><br><br>
-            <input type="submit" value="Turn AC off" name="acOffButton"><br><br>
-            <input type="submit" value="Open window blind"  name="windowBlindOnButton"><br><br>
-            <input type="submit" value="Close window blind" name="windowBlindOffButton"><br><br>
-            <input type="submit" value="Lock smart locks"  name="smartLocksLockedButton"><br><br>
-            <input type="submit" value="Unlock smart locks" name="smartLocksUnlockedButton"><br><br>
-            <input type="submit" value="Start coffee machine"  name="coffeeMachineStartedButton"><br><br>
-            <input type="submit" value="Stop coffee machine" name="coffeeMachineStoppedButton"><br><br>
-            <input type="submit" value="Start emergency alarm" name="emergencyOnButton"><br><br>
-            <input type="submit" value="Stop emergency alarm" name="emergencyOffButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter temperature(as Celcius)..." name="temperature"><br><br>
-            <input type="submit" name="temperatureButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter lightbrightness(as percentages)..." name="lightBrightness"><br><br>
-            <input type="submit" name="lightBrightnessButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter water level(as CMs)..." name="waterLevel"><br><br>
-            <input type="submit" name="waterLevelButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter fan speed(as RPMs)..." name="fanSpeed"><br><br>
-            <input type="submit" name="fanSpeedButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter air quality(as percentages)..." name="indoorQuality"><br><br>
-            <input type="submit" name="indoorQualityButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter energy consumption(as kWs per month)..." name="energyConsumption"><br><br>
-            <input type="submit" name="energyConsumptionButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter water quality(as percentages)..." name="waterQuality"><br><br>
-            <input type="submit" name="waterQualityButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter tank water temperature(as percentages)..." name="waterTemperature"><br><br>
-            <input type="submit" name="waterTemperatureButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter tank water temperature(as percentages)..." name="waterTemperature"><br><br>
-            <input type="submit" name="waterTemperatureButton"><br><br>
-        </form>
-        <form method="POST">
-            <input type="text" placeholder="Please enter humidity(as percentages)..." name="humidity"><br><br>
-            <input type="submit" name="humidityButton"><br><br>
-        </form>
-        <form method="POST">
-            <label for="weatherForecastId">Weather Forecast</label><br>
-            <select name="weatherForecast" id="weatherForecastId">
-                <option value="sunny">Sunny</option>
-                <option value="rainy">Rainy</option>
-                <option value="stormy">Stormy</option>
-                <option value="windy">Windy</option>
-                <option value="cloudy">Cloudy</option>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand ms-5" href="#">
+            <img src="../consumer/images/logo.png" alt="Logo" width="55" height="55">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="d-flex me-5" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item mx-3">
+            <a class="nav-link active" aria-current="page" href="./landingPage.php"><b>Home</b></a>
+            </li>
+            <li class="nav-item mx-3">
+            <a class="nav-link" href="#"><b>Features</b></a>
+            </li>
+            <li class="nav-item mx-3">
+            <a class="nav-link" href="#"><b>Pricing</b></a>
+            </li>
+            <li class="nav-item mx-3">
+                <button type="button" class="btn btn-outline-dark">Admin</button>
+            </li>
+            <li class="nav-item mx-3">
+                <button type="button" class="btn btn-outline-dark">Log out</button>
+            </li>
+            <li class="nav-item ms-3">
+                <button type="button" class="btn btn-outline-dark">Language</button>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    <!-- NAVBAR -->
+    <div class="my-5"></div><!-- to give some space -->
+        <div class="ms-5">
+            <select name="Select Customer" id="select-customer">
+                <option value="Customer 1">Customer 1</option>
+                <option value="Customer 2">Customer 2</option>
+                <option value="Customer 3">Customer 3</option>    
             </select>
-            <input type="submit" name="weatherForecastButton" />
-        </form>
+        </div>
+
+        <br><br><br>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                <form method="POST">
+                    <input class="btn btn-primary" type="submit" value="Lights On"   name="lightsOnButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Lights Off"  name="lightsOffButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Turn AC on"  name="acOnButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Turn AC off" name="acOffButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Open window blind"  name="windowBlindOnButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Close window blind" name="windowBlindOffButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Lock smart locks"  name="smartLocksLockedButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Unlock smart locks" name="smartLocksUnlockedButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Start coffee machine"  name="coffeeMachineStartedButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Stop coffee machine" name="coffeeMachineStoppedButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Start emergency alarm" name="emergencyOnButton"><br><br>
+                    <input class="btn btn-primary" type="submit" value="Stop emergency alarm" name="emergencyOffButton"><br><br>
+                </form>
+                </div>
+                <div class="col">
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter temperature(as Celcius)..." name="temperature"><br><br>
+                        <input class="btn btn-primary" type="submit" name="temperatureButton"><br><br>
+                    </form>
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter lightbrightness(as percentages)..." name="lightBrightness"><br><br>
+                        <input class="btn btn-primary" type="submit" name="lightBrightnessButton"><br><br>
+                    </form>
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter water level(as CMs)..." name="waterLevel"><br><br>
+                        <input class="btn btn-primary" type="submit" name="waterLevelButton"><br><br>
+                    </form>
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter fan speed(as RPMs)..." name="fanSpeed"><br><br>
+                        <input class="btn btn-primary" type="submit" name="fanSpeedButton"><br><br>
+                    </form>
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter air quality(as percentages)..." name="indoorQuality"><br><br>
+                        <input class="btn btn-primary" type="submit" name="indoorQualityButton"><br><br>
+                    </form>
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter energy consumption(as kWs per month)..." name="energyConsumption"><br><br>
+                        <input class="btn btn-primary" type="submit" name="energyConsumptionButton"><br><br>
+                    </form>
+                </div>
+                <div class="col">
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter water quality(as percentages)..." name="waterQuality"><br><br>
+                        <input class="btn btn-primary" type="submit" name="waterQualityButton"><br><br>
+                    </form>
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter tank water temperature(as percentages)..." name="waterTemperature"><br><br>
+                        <input class="btn btn-primary" type="submit" name="waterTemperatureButton"><br><br>
+                    </form>
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter tank water temperature(as percentages)..." name="waterTemperature"><br><br>
+                        <input class="btn btn-primary" type="submit" name="waterTemperatureButton"><br><br>
+                    </form>
+                    <form method="POST">
+                        <input type="text" placeholder="Please enter humidity(as percentages)..." name="humidity"><br><br>
+                        <input class="btn btn-primary" type="submit" name="humidityButton"><br><br>
+                    </form>
+                    <form method="POST">
+                        <label for="weatherForecastId">Weather Forecast</label><br>
+                        <select name="weatherForecast" id="weatherForecastId">
+                            <option value="sunny">Sunny</option>
+                            <option value="rainy">Rainy</option>
+                            <option value="stormy">Stormy</option>
+                            <option value="windy">Windy</option>
+                            <option value="cloudy">Cloudy</option>
+                        </select>
+                        <input class="btn btn-primary" type="submit" name="weatherForecastButton" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- FOOTER -->
+
+        <div class="container">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+                </ul>
+                <p class="text-center text-body-secondary">© 2023 Home Automation Company, Inc</p>
+            </footer>
+        </div>
+
+
+
+
     <?php
         if (isset($_POST["lightsOnButton"]))
         {
-            echo "Lights are opened";
+            alert("Lights are opened");
             $_SESSION['isLightsOn'] = true;
         }
         if (isset($_POST["lightsOffButton"]))
         {
-            echo "Lights are closed";
+            alert("Lights are closed");
             $_SESSION['isLightsOn'] = false;
         }
         if (isset($_POST["acOnButton"]))
         {
-            echo "AC is on.";
+            alert("AC is on.");
             $_SESSION['isAcOn'] = true;
         }
         if (isset($_POST["acOffButton"]))
         {
-            echo "AC is off.";
+            alert("AC is off.");
             $_SESSION['isAcOn'] = false;
         }
         if (isset($_POST["windowBlindOnButton"]))
         {
-            echo "Window blind is opened.";
+            alert("Window blind is opened.");
             $_SESSION['isWindowBlindOn'] = true;
         }
         if (isset($_POST["windowBlindOffButton"]))
         {
-            echo "Window blind is closed.";
+            alert("Window blind is closed.");
             $_SESSION['isWindowBlindOn'] = false;
         }
         if (isset($_POST["smartLocksLockedButton"]))
         {
-            echo "Smart locks locked.";
+            alert("Smart locks locked.");
             $_SESSION['isSmartLocksLocked'] = true;
         }
         if (isset($_POST["smartLocksUnlockedButton"]))
         {
-            echo "Smart locks unlocked.";
+            alert("Smart locks unlocked.");
             $_SESSION['isSmartLocksLocked'] = false;
         }
         if (isset($_POST["coffeeMachineStartedButton"]))
         {
-            echo "Coffee machine started.";
+            alert("Coffee machine started.");
             $_SESSION['isCoffeeMachineStarted'] = true;
         }
         if (isset($_POST["coffeeMachineStoppedButton"]))
         {
-            echo "Coffee machine stopped.";
+            alert("Coffee machine stopped.");
             $_SESSION['isCoffeeMachineStarted'] = false;
         }
         if (isset($_POST["emergencyOnButton"]))
         {
-            echo "Alarm started!";
+            alert("Alarm started!");
             $_SESSION['isEmergency'] = true;
         }
         if (isset($_POST["emergencyOffButton"]))
         {
-            echo "Alarm stopped.";
+            alert("Alarm stopped.");
             $_SESSION['isEmergency'] = false;
         }
         if (isset($_POST["weatherForecastButton"]))
         {
-            echo "Weather forecast " . $_POST['weatherForecast'] . " selected.";
+            alert("Weather forecast " . $_POST['weatherForecast'] . " selected.");
             $_SESSION['weatherForecast'] = $_POST['weatherForecast'];//weatherForecastButton
         }
         if (isset($_POST["temperatureButton"])) {
@@ -184,78 +259,69 @@
             if (!is_numeric($_POST["temperature"])) {
                 throw new Exception("Temperature must be a number!");
             }
-            echo "Temperature is set to ";
             $_SESSION['temperature'] = $_POST["temperature"];
-            echo $_SESSION['temperature'] . "C.";
+            alert("Temperature is set to " . $_SESSION['temperature'] . "C.");
         }
         if (isset($_POST["lightBrightnessButton"])) {
             //is_numeric function is used with strings to test if they are stringified representations of integers
             if (!is_numeric($_POST["lightBrightness"]) || $_POST["lightBrightness"] < 0 || $_POST["lightBrightness"] > 1) {
                 throw new Exception("Light brightness must be a percentage!");
             }
-            echo "Light brightness is set to ";
             $_SESSION['lightBrightness'] = $_POST["lightBrightness"];
-            echo $_SESSION['lightBrightness'] . "%.";
+            alert("Light brightness is set to " . $_SESSION['lightBrightness'] . "%.");
         }
         if (isset($_POST["waterLevelButton"])) {
             //is_numeric function is used with strings to test if they are stringified representations of integers
             if (!is_numeric($_POST["waterLevel"]) || $_POST["waterLevel"] < 0) {
                 throw new Exception("Water level must be a positive number!");
-            } 
-            echo "Water level is set to ";
+            }
             $_SESSION['waterLevel'] = $_POST["waterLevel"];
-            echo $_SESSION['waterLevel'] . "CM.";
+            alert("Water level is set to " . $_SESSION['waterLevel'] . "CM.");
         }
         if (isset($_POST["fanSpeedButton"])) {
             //is_numeric function is used with strings to test if they are stringified representations of integers
             if (!is_numeric($_POST["fanSpeed"]) || $_POST["fanSpeed"] < 0) {
                 throw new Exception("Fan speed must be a number!");
             } 
-            echo "Fan speed is set to ";
             $_SESSION['fanSpeed'] = $_POST["fanSpeed"];
-            echo $_SESSION['fanSpeed'] . "RPMs.";
+            alert("Fan speed is set to " . $_SESSION['fanSpeed'] . "RPMs.");
         }
         if (isset($_POST["indoorQualityButton"])) {
             //is_numeric function is used with strings to test if they are stringified representations of integers
             if (!is_numeric($_POST["indoorQuality"]) || $_POST["indoorQuality"] < 0 || $_POST["indoorQuality"] > 1) {
                 throw new Exception("Air quality must be a percentages!");
             } 
-            echo "Air quality is set to ";
             $_SESSION['indoorQuality'] = $_POST["indoorQuality"];
-            echo $_SESSION['indoorQuality'] . "%.";
+            alert("Air quality is set to " . $_SESSION['indoorQuality'] . "%.");
         } if (isset($_POST["energyConsumptionButton"])) {
             //is_numeric function is used with strings to test if they are stringified representations of integers
             if (!is_numeric($_POST["energyConsumption"]) || $_POST["energyConsumption"] < 0) {
                 throw new Exception("Energy consumption must be a positive number!");
             } 
-            echo "Energy consumption is set to ";
             $_SESSION['energyConsumption'] = $_POST["energyConsumption"];
-            echo $_SESSION['energyConsumption'] . "kWs.";
+            alert("Energy consumption is set to " . $_SESSION['energyConsumption'] . "kWs.");
         } if (isset($_POST["waterQualityButton"])) {
             //is_numeric function is used with strings to test if they are stringified representations of integers
             if (!is_numeric($_POST["waterQuality"]) || $_POST["waterQuality"] < 0 || $_POST["waterQuality"] > 1) {
                 throw new Exception("Water quality must be a percentage!");
             }
-            echo "Water quality is set to ";
             $_SESSION['waterQuality'] = $_POST["waterQuality"];
-            echo $_SESSION['waterQuality'] . "%.";
+            alert("Water quality is set to " . $_SESSION['waterQuality'] . "%.");
         } if (isset($_POST["waterTemperatureButton"])) {
             //is_numeric function is used with strings to test if they are stringified representations of integers
             if (!is_numeric($_POST["waterTemperature"])) {
                 throw new Exception("Temperature must be a number!");
             }
-            echo "Temperature is set to ";
             $_SESSION['waterTemperature'] = $_POST["waterTemperature"];
-            echo $_SESSION['waterTemperature'] . "C.";
+            alert("Temperature is set to " . $_SESSION['waterTemperature'] . "C.");
         }
         if (isset($_POST["humidityButton"])) {
             //is_numeric function is used with strings to test if they are stringified representations of integers
             if (!is_numeric($_POST["humidity"]) || $_POST["humidity"] < 0 || $_POST["humidity"] > 1) {
                 throw new Exception("Humidity must be a percentage!");
             }
-            echo "Humidity is set to ";
             $_SESSION['humidity'] = $_POST["humidity"];
-            echo $_SESSION['humidity'] . "%.";
+            alert("Humidity is set to " . $_SESSION['humidity'] . "%.");
         }
         //this part writes all custom global variables to a txt file where consumer can reach
         $myfile = fopen("../keyValuePairs.txt", "w");
