@@ -71,8 +71,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Switch Lights</h5>
                     <?php echo '<p class="card-text">You can switch lights on and off from here. It\'s <b>' . ($_SESSION['isLightsOn'] ? "on" : "off") . '</b> now.</p>' ?>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                        <input class="btn btn-primary" type="submit" value="Open Lights" name="lightsOnButton">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                        <input type="submit" value="Open Lights" name="lightsOnButton">
                         <input class="btn btn-primary" type="submit" value="Close Lights" name="lightsOffButton">
                     </form>
                 </div>
