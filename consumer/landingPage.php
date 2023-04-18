@@ -65,6 +65,7 @@
     <div class="my-5"></div><!-- to give some space -->
 
     <div class="row mx-3">
+        <h5>Please double click!</h5>
         <div class="col mb-3 mb-sm-0">
             <div class="card">
                 <?php echo '<img src="' . ($_SESSION['isLightsOn'] ? "./images/lightsOn.png" : "./images/lightsOff.png") . '" class="card-img-top" alt="..." height="235">' ?>
@@ -72,7 +73,7 @@
                     <h5 class="card-title">Switch Lights</h5>
                     <?php echo '<p class="card-text">You can switch lights on and off from here. It\'s <b>' . ($_SESSION['isLightsOn'] ? "on" : "off") . '</b> now.</p>' ?>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                        <input type="submit" value="Open Lights" name="lightsOnButton">
+                        <input class="btn btn-primary" type="submit" value="Open Lights" name="lightsOnButton">
                         <input class="btn btn-primary" type="submit" value="Close Lights" name="lightsOffButton">
                     </form>
                 </div>
