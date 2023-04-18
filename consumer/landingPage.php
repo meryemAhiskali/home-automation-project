@@ -71,7 +71,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Switch Lights</h5>
                     <?php echo '<p class="card-text">You can switch lights on and off from here. It\'s <b>' . ($_SESSION['isLightsOn'] ? "on" : "off") . '</b> now.</p>' ?>
-                    <form method="post">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <input class="btn btn-primary" type="submit" value="Open Lights" name="lightsOnButton">
                         <input class="btn btn-primary" type="submit" value="Close Lights" name="lightsOffButton">
                     </form>
@@ -84,7 +84,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Control Light Brightness</h5>
                     <?php echo '<p class="card-text">Opacity of this image will change. Brightness: <b>' . $_SESSION['lightBrightness'] . '</b></p>' ?>
-                    <form method="post">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <input class="btn btn-primary" type="submit" value="Decrease" name="lightBrightnessDecrease">
                         <input class="btn btn-primary" type="submit" value="Increase" name="lightBrightnessIncrease">
                     </form>
@@ -109,7 +109,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Control Window Blinds</h5>
                     <p class="card-text">You can control them anytime you want.</p>
-                    <form method="post">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <input class="btn btn-primary" type="submit" value="Open" name="windowBlindOnButton">
                         <input class="btn btn-primary" type="submit" value="Close" name="windowBlindOffButton">
                     </form>
@@ -140,7 +140,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Air Conditioning</h5>
                     <p class="card-text">You can turn on/off AC.</p>
-                    <form action="#airConditioning" method="post">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <input class="btn btn-primary" type="submit" value="Turn On" name="acOnButton">
                         <input class="btn btn-primary" type="submit" value="Turn Off" name="acOffButton">
                     </form>
@@ -165,8 +165,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Control Smart Locks</h5>
                     <p class="card-text">You can open/close your smart locks here.</p>
-                    <input class="btn btn-primary" type="submit" value="Lock" name="">
-                    <input class="btn btn-primary" type="submit" value="Unlock" name="">
+                    <form action="" method="post">
+                        <input class="btn btn-primary" type="submit" value="Lock" name="smartLocksLockedButton">
+                        <input class="btn btn-primary" type="submit" value="Unlock" name="smartLocksUnlockedButton">
+                    </form>
                 </div>
             </div>
         </div>
@@ -180,9 +182,11 @@
                 <img src="./images/coffeeMachine.png" class="card-img-top" alt="..." height="235" width="432" style="object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Coffee Machine</h5>
-                    <p class="card-text">You can start your coffee machine before you arrive home.</p>
-                    <input class="btn btn-primary" type="submit" value="Start" name="">
-                    <input class="btn btn-primary" type="submit" value="Stop" name="">
+                    <?php echo '<p class="card-text">You can start your coffee machine before you arrive home. It\'s now <b>' . ($_SESSION['isCoffeeMachineStarted'] ? "started" : "stopped") .'</b></p>' ?>
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                        <input class="btn btn-primary" type="submit" value="Start" name="coffeeMachineStartedButton">
+                        <input class="btn btn-primary" type="submit" value="Stop" name="coffeeMachineStoppedButton">
+                    </form>
                 </div>
             </div>
         </div>
@@ -216,8 +220,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Water Temperature in Tank</h5>
                     <?php echo '<p class="card-text">Your water tank is <b>' . $_SESSION['waterTemperature'] . 'C</b>.</p>' ?>
-                    <input class="btn btn-primary" type="submit" value="Heat Up" name="">
-                    <input class="btn btn-primary" type="submit" value="Cool Down" name="">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                        <input class="btn btn-primary" type="submit" value="Heat Up" name="waterTemperatureIncreaseButton">
+                        <input class="btn btn-primary" type="submit" value="Cool Down" name="waterTemperatureDecreaseButton">
+                    </form>
                 </div>
             </div>
         </div>
@@ -256,8 +262,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Emergency Alert</h5>
                     <?php echo '<p class="card-text">Emergency alert is ' . ($_SESSION['isEmergency'] ? "<b>ON</b>" : "<b>off</b>") . '.</p>' ?>
-                    <input class="btn btn-primary" type="submit" value="Open" name="">
-                    <input class="btn btn-primary" type="submit" value="Close" name="">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                        <input class="btn btn-primary" type="submit" value="Open" name="emergencyOnButton">
+                        <input class="btn btn-primary" type="submit" value="Close" name="emergencyOffButton">
+                    </form>
                 </div>
             </div>
         </div>
@@ -267,8 +275,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Fan Speed</h5>
                     <?php echo '<p class="card-text">Fan speed is <b>' . $_SESSION['fanSpeed'] . 'RPMs</b>.</p>' ?>
-                    <input class="btn btn-primary" type="submit" value="Increase"  name="">
-                    <input class="btn btn-primary" type="submit" value="Decrease" name="">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <input class="btn btn-primary" type="submit" value="Increase"  name="fanSpeedIncreaseButton">
+                    <input class="btn btn-primary" type="submit" value="Decrease" name="fanSpeedDecreaseButton">
+                    </form>
                 </div>
             </div>
         </div>
@@ -327,7 +337,38 @@
         if (isset($_POST['acOffButton'])) {
             $_SESSION['isAcOn'] = false; 
         }
-        
+        if (isset($_POST['smartLocksLockedButton'])) {
+            $_SESSION['isSmartLocksLocked'] = true;
+        }
+        if (isset($_POST['smartLocksUnlockedButton'])) {
+            $_SESSION['isSmartLocksLocked'] = false;
+        }
+        if (isset($_POST['coffeeMachineStartedButton'])) {
+            $_SESSION['isCoffeeMachineStarted'] = true;
+        }
+        if (isset($_POST['coffeeMachineStoppedButton'])) {
+            $_SESSION['isCoffeeMachineStarted'] = false;
+        }
+        if (isset($_POST['waterTemperatureIncreaseButton'])) {
+            $_SESSION['waterTemperature'] = $_SESSION['waterTemperature'] + 1; 
+        }
+        if (isset($_POST['waterTemperatureDecreaseButton'])) {
+            $_SESSION['waterTemperature'] = $_SESSION['waterTemperature'] - 1; 
+        }
+        if (isset($_POST['emergencyOnButton'])) {
+            $_SESSION['isEmergency'] = true;
+        }
+        if (isset($_POST['emergencyOffButton'])) {
+            $_SESSION['isEmergency'] = false;
+        }
+        if (isset($_POST['fanSpeedIncreaseButton'])) {
+            $_SESSION['fanSpeed'] = $_SESSION['fanSpeed'] + 1; 
+        }
+        if (isset($_POST['fanSpeedDecreaseButton'])) {
+            if ($_SESSION['fanSpeed'] > 0) {
+                $_SESSION['fanSpeed'] = $_SESSION['fanSpeed'] - 1;
+            }
+        }
 
         $myfile = fopen("../keyValuePairs.txt", "w");
         fwrite($myfile, ($_SESSION['isLightsOn'] ? "isLightsOn=true" : "isLightsOn=false") . "\n" . 
