@@ -11,6 +11,6 @@ isCoffeeMachineStarted=false
 energyConsumption=2100
 waterQuality=0.3
 waterTemperature=30
-weatherForecast=stormy
+weatherForecast=rainy
 humidity=0.3
 isEmergency=false

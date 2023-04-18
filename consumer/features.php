@@ -18,7 +18,7 @@
                 <p>
                     The smart home automation system is the need of time and the requirement of every individual. It can ensure your convenience and comfort without compromising your privacy. smart home automation system is a way to control all the gadgets of your house with your convenience, thus saving power and cost. You can handle all your gadgets (Such as audio speakers, thermostats, lights, TVs, Security cameras, locks, etc.) with the help of your smartphone or through the internet. The smart home automation system offers the most intelligent way of controlling your home. <br>
         
-         
+        
         
         Why is Smart Home Automation System needed? <br>
         
