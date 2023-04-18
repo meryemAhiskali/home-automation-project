@@ -10,13 +10,13 @@
         <div class="d-flex me-5" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item mx-3">
-            <a class="nav-link active" aria-current="page" href="./landingPage.php"><b>Home</b></a>
+            <a class="nav-link active" aria-current="page" href="/home-automation-project/consumer/landingPage.php"><b>Home</b></a>
             </li>
             <li class="nav-item mx-3">
             <a class="nav-link" href="/home-automation-project/consumer/features.php"><b>Features</b></a>
             </li>
             <li class="nav-item mx-3">
-            <a class="nav-link" href="#"><b>Pricing</b></a>
+            <a class="nav-link" href="/home-automation-project/pricing.php"><b>Pricing</b></a>
             </li>
             <li class="nav-item mx-3">
                 <button type="button" class="btn btn-outline-dark">Logged in</button>
