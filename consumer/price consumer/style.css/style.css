@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,400;1,800&display=swap');
+
+
+
+:root{
+    --primary: #3155e7;
+    --primary-dark: #2045d6;
+    --black: #010101;
+    --gray-1: #788190;
+    --gray-2: #d3d4db;
+    --white: #FFFFFF;
+    --body: #fefefe;
+    --gray-4: #62666e;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--body);
+}
+
+.btn{
+    border-radius: 8px;
+}
+
+.btn-primary,
+.btn-outline-secondary,
+.btn-outline-third{
+    padding:12px 20px;
+}
+.btn-primary{
+    background-color: var(--primary);
+}
+
+.btn-primary:hover{
+    background-color: var(--primary-dark);
+}
+
+
+.btn-outline-third{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-outline-third:hover{
+    background-color: var(--gray-4);
+    border: 1px solid var(--gray-4);
+    color: var(--black);
+}
+.btn-outline-third:focus{
+    background-color: var(--gray-4);
+    border: 1px solid var(--gray-4);
+    color: var(--black);
+}
+.btn-outline-fourth{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-outline-fourth:hover{
+    background-color: var(--gray-4);
+    border: 1px solid var(--gray-4);
+    color: var(--black);
+}
+.btn-outline-fourth:focus{
+    background-color: var(--gray-4);
+    border: 1px solid var(--gray-4);
+    color: var(--black);
+}
+
+.navbar .btn-outline-third{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 10px 16px;
+}
+.navbar .btn-outline-fourth{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 10px 16px;
+}
+
+.navbar{
+    padding: 16px 0;
+}
+
+.nav-link{
+    margin-left: 41px;
+    font-size: 16px;
+    color: var(--gray-1);
+}
+
+.navbar-nav .nav-link.active{
+    font-weight: bold;
+    color: var(--black);
+}
+
+footer{
+    padding-top:50px ;
+    margin-bottom: 44px;
+}
+
+footer a{
+    font-weight:bold ;
+    font-size: 14px;
+    color:var(--black);
+    line-height: 18px;
+}
+
+
+footer .copy{
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--gray-1);
+    line-height: 17px;
+    font-weight: 400px;
+}
+
+.kutucuk{
+    display: flex;
+    
+}
+
+section.hero{
+    padding: 10px 0;
+}
+section.hero .text{
+    
+    padding-top: 5vh; /* 50 viewport yüksekliği kadar üstten boşluk */
+    padding-bottom: 100vh; /* 50 viewport yüksekliği kadar alttan boşluk */
+    padding-left: 650px;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 73px;
+    color: var(--black);
+}
+
+section.hero .text{
+    
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 73px;
+    color: var(--black);
+}
+
+section.desc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+section.h3 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+
+section.p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 10px;
+}
+
+section.button {
+    margin-top: 10px;
+    width: 80%;
+}
+.btn-outline-son{
+    width: 200px; 
+    height: 40px; 
+    padding:10px 50px;
+    margin-right: 1234px 0;
+}
+
+.btn-outline-son{
+
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-outline-son:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-outline-son:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}

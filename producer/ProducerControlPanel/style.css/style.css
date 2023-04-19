@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,400;1,800&display=swap');
+
+
+
+:root{
+    --primary: #3155e7;
+    --primary-dark: #2045d6;
+    --black: #010101;
+    --gray-1: #788190;
+    --gray-2: #d3d4db;
+    --white: #FFFFFF;
+    --body: #fefefe;
+    --gray-4: #62666e;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--body);
+}
+
+.btn{
+    border-radius: 8px;
+}
+
+.btn-primary,
+.btn-outline-secondary,
+.btn-outline-third{
+    padding:12px 20px;
+}
+.btn-primary{
+    background-color: var(--primary);
+}
+
+.btn-primary:hover{
+    background-color: var(--primary-dark);
+}
+
+.btn-outline-secondary{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-outline-secondary:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-outline-secondary:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-outline-third{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-outline-third:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-outline-third:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+
+.btn-outline-fourth{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-outline-fourth:hover{
+    background-color: var(--gray-4);
+    border: 1px solid var(--gray-4);
+    color: var(--black);
+}
+.btn-outline-fourth:focus{
+    background-color: var(--gray-4);
+    border: 1px solid var(--gray-4);
+    color: var(--black);
+}
+
+.navbar .btn-outline-secondary{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 10px 16px;
+}
+.navbar .btn-outline-third{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 10px 16px;
+}
+.navbar .btn-outline-fourth{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 10px 16px;
+}
+
+.navbar{
+    padding: 16px 0;
+}
+
+.nav-link{
+    margin-left: 41px;
+    font-size: 16px;
+    color: var(--gray-1);
+}
+
+.navbar-nav .nav-link.active{
+    font-weight: bold;
+    color: var(--black);
+}
+.btn{
+    border-radius: 8px;
+}
+
+.btn-bir,
+.btn-iki,
+.btn-üç,
+.btn-dört{
+    padding:12px 20px;
+}
+
+.btn-bir{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-bir:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-bir:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-iki{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-iki:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-iki:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-üç{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-üç:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-üç:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-dört{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-dört:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-dört:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+
+
+.btn{
+    border-radius: 8px;
+}
+
+.btn-beş,
+.btn-altı,
+.btn-yedi,
+.btn-sekiz{
+    padding:12px 20px;
+}
+
+.btn-beş{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-beş:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-beş:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-altı{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-altı:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-altı:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-yedi{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-yedi:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-yedi:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-sekiz{
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+.btn-sekiz:hover{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+.btn-sekiz:focus{
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-2);
+    color: var(--black);
+}
+
+
+
+
+
+
+
+
+footer{
+    padding-top:300px ;
+    margin-bottom: 44px;
+}
+
+footer a{
+    font-weight:bold ;
+    font-size: 14px;
+    color:var(--black);
+    line-height: 18px;
+}
+
+
+footer .copy{
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--gray-1);
+    line-height: 17px;
+    font-weight: 400px;
+}
