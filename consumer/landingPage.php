@@ -7,6 +7,7 @@
     <title>Landing Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="/consumer/images/logo.png">
     <style>
         .chart-container {
             width: 90rem;
@@ -201,7 +202,15 @@
                 <canvas id="chart"></canvas>
             </div>
             <div class="col">
-                <canvas id="second_chart"></canvas>
+                <canvas id="chart-2"></canvas>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col">
+                <canvas id="chart-3"></canvas>
+            </div>
+            <div class="col">
+                <canvas id="chart-4"></canvas>
             </div>
         </div>
     </div>
@@ -250,10 +259,10 @@
           labels: ["Sunday", "Monday", "Tuesday",
           "Wednesday", "Thursday", "Friday", "Saturday"],
           datasets: [{
-            label: 'Last week',
-            backgroundColor: 'rgba(161, 198, 247, 1)',
-            borderColor: 'rgb(47, 128, 237)',
-            data: [3000, 4000, 2000, 5000, 8000, 9000, 2000],
+            label: 'Temperature',
+            backgroundColor: 'rgb(178, 164, 255)',
+            borderColor: 'rgb(147, 132, 209)',
+            data: [2, 4, 16, 64, 38, 45, 60],
           }]
         },
         options: {
@@ -269,7 +278,7 @@
     </script>
 
     <script>
-      const ctx2 = document.getElementById("second_chart").getContext('2d');
+      const ctx2 = document.getElementById("chart-2").getContext('2d');
       const myChart2 = new Chart(ctx2, {
         type: 'bar',
         data: {
@@ -277,8 +286,70 @@
           "beans", "maize", "oil"],
           datasets: [{
             label: 'food Items',
-            backgroundColor: 'rgba(161, 198, 247, 1)',
-            borderColor: 'rgb(47, 128, 237)',
+            backgroundColor: 'rgb(255, 180, 180)',
+            borderColor: 'rgb(147, 132, 209)',
+            data: [300, 400, 200, 500, 800, 900, 200],
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+              }
+            }]
+          }
+        },
+      });
+    </script>
+
+    <script>
+        const ctx3 = document.getElementById("chart-3").getContext('2d');
+        const myChart3 = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+            labels: ["rice", "yam", "tomato", "potato",
+            "beans", "maize", "oil"],
+            datasets: [{
+                label: 'food Items',
+                backgroundColor: 'rgb(255, 222, 180)',
+                borderColor: 'rgb(255, 180, 180)',
+                data: [30, 40, 20, 50, 80, 90, 20],
+            }]
+            },
+        });
+    </script>
+
+    <script>
+      const ctx4 = document.getElementById("chart-4").getContext('2d');
+      const myChart4 = new Chart(ctx4, {
+        type: 'doughnut',
+        data: {
+          labels: ["rice", "yam", "tomato", "potato", "beans",
+           "maize", "oil"],
+          datasets: [{
+            label: 'food Items',
+            data: [30, 40, 20, 50, 80, 90, 20],
+            backgroundColor: ["#FDF4F5", "#E8A0BF", "#BA90C6",
+            "#C0DBEA", "#FDF4F5", "#E8A0BF", "#BA90C6",
+            "#C0DBEA", "#FDF4F5", "#E8A0BF", "#BA90C6",
+            "#C0DBEA", "#FDF4F5", "#C0DBEA", "#C0DBEA"]
+          }]
+        },
+      });
+    </script>
+
+    <script>
+      const ctx4 = document.getElementById("chart-4").getContext('2d');
+      const myChart4 = new Chart(ctx4, {
+        type: 'bar',
+        data: {
+          labels: ["rice", "yam", "tomato", "potato",
+          "beans", "maize", "oil"],
+          datasets: [{
+            label: 'food Items',
+            backgroundColor: 'rgb(253, 247, 195)',
+            borderColor: 'rgb(147, 132, 209)',
             data: [300, 400, 200, 500, 800, 900, 200],
           }]
         },

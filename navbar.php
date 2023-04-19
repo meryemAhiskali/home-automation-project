@@ -38,7 +38,6 @@
             <?php echo '<a class="nav-link active" aria-current="page" href="/' . (isConsumer() ? "consumer" : "producer") . '/landingPage.php"><b>Home</b></a>' ?>
             </li>
             <?php echo (isConsumer() ? '<li class="nav-item mx-3"> <a class="nav-link" href="/consumer/features.php"><b>Features</b></a> </li>' : ''); ?>
-            <?php echo (isConsumer() ? '<li class="nav-item mx-3"> <a class="nav-link" href="/consumer/pricing.php"><b>Pricing</b></a> </li>' : ''); ?>
             <li class="nav-item mx-3">
                 <button type="button" class="btn btn-outline-dark">Log out</button>
             </li>
