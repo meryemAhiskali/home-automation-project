@@ -63,7 +63,7 @@
 			header("Location: /home-automation-project/producer/landingPage.php");
 		}
 	?>
-
+	<?php include '../toast.php' ?>
 	<?php include "../footer.php" ?>
 </body>
 </html>

@@ -129,7 +129,8 @@
                 </div>
             </div>
         </div>
-
+        
+        <?php include '../toast.php' ?>
         <?php include "../footer.php" ?>
 
 
