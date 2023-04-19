@@ -234,6 +234,7 @@ Donec non venenatis libero, eget aliquet felis. Morbi quis ex efficitur, luctus 
 
 
     <?php include '../toast.php' ?>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script>
       const ctx = document.getElementById("chart").getContext('2d');
