@@ -188,13 +188,9 @@
         </button>
     </div>
 
-    <div class="container text-center my-3">
-        <div class="row">
-            <div class="col-12">
-                <img src="./images/seperator.png" height="20rem" style="opacity:0.8">
-            </div>
-        </div>
-    </div>
+    <div class="container text-center my-5"><div class="row"><div class="col-12"><img src="./images/seperator.png" height="20rem" style="opacity:0.8"></div></div></div>
+
+    <div class="shadow-lg p-3 mb-5 mx-5 bg-body rounded">Your House Statistics</div>
 
     <div class="card chart-container mx-5">
         <div class="row justify-content-center">
@@ -215,41 +211,29 @@
         </div>
     </div>
 
-    
+    <div class="container text-center my-5"><div class="row"><div class="col-12"><img src="./images/seperator.png" height="20rem" style="opacity:0.8"></div></div></div>
 
+    <div class="shadow-lg p-3 mb-5 mx-5 bg-body rounded">About Your House</div>
 
+    <div class="shadow-lg p-3 mb-5 mx-5 bg-body rounded">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices imperdiet tempor. Etiam eu scelerisque odio. Nullam auctor eget mi eget tincidunt. In lacinia pulvinar neque nec bibendum. Nulla nulla enim, aliquet consequat felis eu, consequat tempus elit. Aliquam erat volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc feugiat nulla nec justo fermentum sodales. In vulputate justo lacus, id fermentum ligula tristique non. Ut ultricies diam vitae pulvinar tempor. Suspendisse potenti. Suspendisse potenti. Mauris vel lacus mi. Cras convallis augue at dapibus accumsan.
 
+Ut lacinia enim velit, in semper ligula ornare ac. Nulla a feugiat tortor. Fusce vulputate posuere ex, nec interdum ante viverra sed. Phasellus orci mi, mattis vel euismod vel, malesuada at elit. Integer pretium ex eu pretium lacinia. Donec auctor mollis venenatis. Duis in congue sapien. Sed faucibus at ex vitae vestibulum. Fusce ac odio quam.
 
-
-
-
-
-
-
-
-
-
-
-
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-        <img src="./images/help.png" class="rounded me-2" alt="..." height="20px"><br>
-        <strong class="me-auto">Do you need any help?</strong>
-        <small>10 seconds ago</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-            Our professional team is ready to help you, click on this pop-up to start a talk.
-        </div>
+Donec non venenatis libero, eget aliquet felis. Morbi quis ex efficitur, luctus dui in, sollicitudin ligula. Vestibulum maximus velit risus, ut maximus purus blandit vel. Aenean consequat sit amet mi euismod ultricies. Nunc ac augue quis velit molestie scelerisque quis a elit. Proin aliquet magna efficitur lobortis aliquam. Pellentesque at arcu non enim sodales porta sed nec orci. Curabitur massa orci, ornare non semper in, imperdiet at lorem. Morbi nisi libero, mattis in urna a, tincidunt lacinia felis. Proin efficitur cursus sem, a hendrerit velit ornare ut. Ut in nunc non est iaculis posuere non vitae ex. Morbi lobortis diam id rhoncus pellentesque. Nunc nec magna ipsum. Suspendisse consequat non nisi ac scelerisque. In blandit nisi interdum pellentesque congue. Quisque sed posuere neque.
     </div>
-    </div>
-    <script>
-        var toastTrigger = document.getElementById('liveToastBtn')
-        var toastLiveExample = document.getElementById('liveToast')
-         toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-        toastBootstrap.show();
-    </script>
+
+
+
+
+
+
+
+
+
+
+
+    <?php include '../toast.php' ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script>
       const ctx = document.getElementById("chart").getContext('2d');
