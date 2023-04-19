@@ -37,9 +37,12 @@
     ?>
     <?php include "../navbar.php" ?>
 
-    <div class="mt-1 ms-5 mb-5">
+    <div class="mt-5 ms-5 mb-5">
         <h2>Welcome Back, Alper Kaya<span class="badge bg-secondary">Account Holder</span></h2>
     </div>
+
+    <div class="shadow-lg p-3 mb-5 mx-5 bg-body rounded">Your Sensors And Controls.</div>
+
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             
@@ -192,7 +195,7 @@
 
     <div class="shadow-lg p-3 mb-5 mx-5 bg-body rounded">Your House Statistics</div>
 
-    <div class="card chart-container mx-5">
+    <div class="card chart-container m-5 py-5">
         <div class="row justify-content-center">
             <div class="col">
                 <canvas id="chart"></canvas>
@@ -212,7 +215,7 @@
     </div>
 
     <div class="container text-center my-5"><div class="row"><div class="col-12"><img src="./images/seperator.png" height="20rem" style="opacity:0.8"></div></div></div>
-
+    
     <div class="shadow-lg p-3 mb-5 mx-5 bg-body rounded">About Your House</div>
 
     <div class="shadow-lg p-3 mb-5 mx-5 bg-body rounded">
@@ -234,7 +237,7 @@ Donec non venenatis libero, eget aliquet felis. Morbi quis ex efficitur, luctus 
 
 
     <?php include '../toast.php' ?>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script>
       const ctx = document.getElementById("chart").getContext('2d');

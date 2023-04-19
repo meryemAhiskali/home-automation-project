@@ -35,7 +35,10 @@
 			return $data;
 		}
 	?>
-	<div class="container">
+
+	<div class="shadow p-3 my-5 mx-5 bg-body rounded">Please Login To Proceed</div>
+
+	<div class="container mt-5">
 		<div class="row align-items-center">
 			<div class="col-4"></div>
 			<div class="col-3 ms-5">
@@ -53,14 +56,14 @@
 					<button type="submit" class="btn btn-primary" value="Login">Submit</button>
 				</form>
 			</div>
-			<div class="col-4"></div>
+			<div class="col-4"><button class="btn btn-primary" style="margin: 0px" onclick="javascript:window.location.href='/consumer/landingPage.php'">Skip Logging In</button></div>
 		</div>
 	</div>
 
 	
 	<?php
 		if ($username != "" && $password != "" && $username == "user" && $password == "1234") {
-			header("Location: /home-automation-project/consumer/landingPage.php");
+			header("Location: /consumer/landingPage.php");
 		}
 	?>
 	<?php include '../toast.php' ?>

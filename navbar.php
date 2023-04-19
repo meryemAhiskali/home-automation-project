@@ -21,6 +21,9 @@
         }
         return false;
     }
+    function isIndexPhp() {
+        return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1) == "index.php";
+    }
 ?>
 
 <!-- NAVBAR -->
@@ -37,9 +40,17 @@
             <li class="nav-item mx-3">
             <?php echo '<a class="nav-link active" aria-current="page" href="/' . (isConsumer() ? "consumer" : "producer") . '/landingPage.php"><b>Home</b></a>' ?>
             </li>
-            <?php echo (isConsumer() ? '<li class="nav-item mx-3"> <a class="nav-link" href="/consumer/features.php"><b>Features</b></a> </li>' : ''); ?>
-            <li class="nav-item mx-3">
-                <button type="button" class="btn btn-outline-dark">Log out</button>
+            <li>
+                <?php echo (isConsumer() ? '<li class="nav-item mx-3"> <a class="nav-link" href="/consumer/features.php"><b>Features</b></a> </li>' : ''); ?>
+            </li>
+            <li>
+                <a class="nav-link active" aria-current="page" href="/consumer/about.php"><b>About</b></a>
+            </li>
+            <li>
+                <li class="nav-item mx-3"> <a class="nav-link" href="/consumer/faqs.php"><b>FAQs</b></a> </li>
+            </li>
+            <li>
+               <?php echo (isIndexPhp() ? '' : '<li class="nav-item mx-3"><button type="button" class="btn btn-outline-dark" onclick="javascript:window.location.href = \'/consumer/index.php\'">Log out</button></li>') ?>
             </li>
             <li class="nav-item ms-3">
                 <button type="button" class="btn btn-outline-dark">Language</button>
