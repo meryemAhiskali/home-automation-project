@@ -1,5 +1,5 @@
-isLightsOn=false
-temperature=20
+isLightsOn=true
+temperature=22
 isAcOn=true
 lightBrightness=1
 waterLevel=87
@@ -13,4 +13,4 @@ waterQuality=0.3
 waterTemperature=62
 weatherForecast=stormy
 humidity=0.3
-isEmergency=true
+isEmergency=false

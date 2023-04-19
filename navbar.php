@@ -50,4 +50,3 @@
     </div>
     </nav>
     <!-- NAVBAR -->
-<div class="my-5"></div><!-- to give some space -->

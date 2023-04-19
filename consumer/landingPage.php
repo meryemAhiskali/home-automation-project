@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
-    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <style>
+        .chart-container {
+            width: 90rem;
+            height: 50%;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -30,227 +36,263 @@
     ?>
     <?php include "../navbar.php" ?>
 
-    <div class="row mx-3">
-        <h5>Please double click to make changes!</h5>
-        <div class="col mb-3 mb-sm-0">
-            <div class="card">
-                <?php echo '<img src="' . ($_SESSION['isLightsOn'] ? "./images/lightsOn.png" : "./images/lightsOff.png") . '" class="card-img-top" alt="..." height="235">' ?>
-                <div class="card-body">
-                    <h5 class="card-title">Switch Lights</h5>
-                    <?php echo '<p class="card-text">You can switch lights on and off from here. It\'s <b>' . ($_SESSION['isLightsOn'] ? "on" : "off") . '</b> now.</p>' ?>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                        <input class="btn btn-primary" type="submit" value="Open Lights" name="lightsOnButton">
-                        <input class="btn btn-primary" type="submit" value="Close Lights" name="lightsOffButton">
-                    </form>
+    <div class="mt-1 ms-5 mb-5">
+        <h2>Welcome Back, Alper Kaya<span class="badge bg-secondary">Account Holder</span></h2>
+    </div>
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            
+            <div class="carousel-item active">
+                <div class="card" id="emergencyAlert">
+                    <?php echo '<img src="./images/' . ($_SESSION['isEmergency'] ? "emergency" : "nonEmergency") . '.png" class="card-img-top" alt="..." height="235" style="object-fit: contain">' ?>
+                    <div class="card-body">
+                        <div class="container text-center">
+                        <h5 class="card-title">Emergency Alert</h5>
+                        <?php echo '<p class="card-text">Emergency alert is ' . ($_SESSION['isEmergency'] ? "<b>ON</b>" : "<b>off</b>") . '.</p>' ?>
+                        </div>
+                        <form action="" method="post">
+                            <div class="container text-center">
+                                <div class="row justify-content-between">
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" type="submit" name="emergencyOnButton">Open</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" type="submit" name="emergencyOffButton">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <?php echo '<img src="./images/lightBrightness.png" class="card-img-top" alt="..." height="235" style="opacity:'. $_SESSION['lightBrightness'] . '">' ?>
-                <div class="card-body">
-                    <h5 class="card-title">Control Light Brightness</h5>
-                    <?php echo '<p class="card-text">Opacity of this image will change. Brightness: <b>' . $_SESSION['lightBrightness'] . '</b></p>' ?>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                        <input class="btn btn-primary" type="submit" value="Decrease" name="lightBrightnessDecrease">
-                        <input class="btn btn-primary" type="submit" value="Increase" name="lightBrightnessIncrease">
-                    </form>
+
+            <div class="carousel-item">
+                <div class="card">
+                    <?php echo '<img src="./images/' . $_SESSION['weatherForecast'] . '.png" class="card-img-top" alt="..." height="235" style="object-fit: contain;">' ?>
+                    <div class="card-body">
+                        <div class="container text-center">
+                            <h5 class="card-title">Weather Forecast</h5>
+                            <?php echo '<p class="card-text">Forecasted weather for tomorrow is <b>' . $_SESSION['weatherForecast'] . '</b>.</p>' ?>
+                            <!-- TO GIVE SOME SPACE -->
+                            <div class="mb-4"></div>
+                            <!-- TO GIVE SOME SPACE -->
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="./images/waterLevel.png" class="card-img-top" alt="..." height="235">
-                <div class="card-body">
-                    <h5 class="card-title">Water Level</h5>
-                    <?php echo '<p class="card-text">Water level is <b>' . $_SESSION['waterLevel'] . '</b> cm.</p>' ?>
-                    <!-- TO GIVE SOME SPACE -->
-                    <div class="mb-5"></div>
-                    <!-- TO GIVE SOME SPACE -->
+            
+            <div class="carousel-item">
+                <div class="card" id="airConditioning">
+                    <?php echo '<img src="' . ($_SESSION['isAcOn'] ? "./images/workingFan.gif" : "./images/stoppedFan.png") . '" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">' ?>
+                    <div class="card-body">
+                        <div class="container text-center">
+                            <h5 class="card-title">Air Conditioning</h5>
+                            <p class="card-text">You can turn on/off AC.</p>
+                        </div>
+                        <form method="post">
+                            <div class="container text-center">
+                                <div class="row justify-content-between">
+                                    <div class="col-6">
+                                        <input class="btn btn-primary" type="submit" value="Turn On" name="acOnButton">
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="btn btn-primary" type="submit" value="Turn Off" name="acOffButton">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <?php echo '<img src="' . ($_SESSION['isWindowBlindOn'] ? "./images/blindsOpened.png" : "./images/blindsClosed.png") . '" class="card-img-top" alt="..." height="235">' ?>
-                <div class="card-body">
-                    <h5 class="card-title">Control Window Blinds</h5>
-                    <p class="card-text">You can control them anytime you want.</p>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                        <input class="btn btn-primary" type="submit" value="Open" name="windowBlindOnButton">
-                        <input class="btn btn-primary" type="submit" value="Close" name="windowBlindOffButton">
-                    </form>
+
+            <div class="carousel-item">
+                <div class="card">
+                    <?php echo '<img src="' . ($_SESSION['isLightsOn'] ? "./images/lightsOn.png" : "./images/lightsOff.png") . '" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">' ?>
+                    <div class="card-body">
+                        <div class="container text-center">
+                            <h5 class="card-title">Switch Lights</h5>
+                            <?php echo '<p class="card-text">You can switch lights on and off from here. It\'s <b>' . ($_SESSION['isLightsOn'] ? "on" : "off") . '</b> now.</p>' ?>
+                        </div>
+                        <form action="" method="post">
+                            <div class="container text-center">
+                                <div class="row justify-content-between">
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" type="submit" name="lightsOnButton">Turn On</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" type="submit" name="lightsOffButton">Turn Off</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="card">
+                    <?php echo '<img src="' . ($_SESSION['isWindowBlindOn'] ? "./images/blindsOpened.png" : "./images/blindsClosed.png") . '" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">' ?>
+                    <div class="card-body">
+                        <div class="container text-center">
+                            <h5 class="card-title">Control Window Blinds</h5>
+                            <p class="card-text">You can control them anytime you want.</p>
+                        </div>
+                        <form action="" method="post">
+                            <div class="container text-center">
+                                <div class="row justify-content-between">
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" type="submit" name="windowBlindOnButton">Open</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" type="submit" name="windowBlindOffButton">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="card" id="temperature">
+                    <img src="./images/temperature.png" class="card-img-top" alt="Temperature image" height="235" width="432" style="object-fit: contain;">
+                    <div class="card-body">
+                        <div class="container text-center">
+                            <h5 class="card-title">Temperature</h5>
+                            <?php echo '<p class="card-text">House temperature is <b>' . $_SESSION['temperature'] . 'C.</b></p>' ?>
+                        </div>
+                        
+                        <form action="" method="post">
+                            <div class="container text-center">
+                                <div class="row justify-content-between">
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" type="submit" name="temperatureUpButton">+</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" type="submit" name="temperatureDownButton">-</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <button class="carousel-control-prev carousel-dark" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next carousel-dark" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container text-center my-3">
+        <div class="row">
+            <div class="col-12">
+                <img src="./images/seperator.png" height="20rem" style="opacity:0.8">
             </div>
         </div>
     </div>
 
-    <div class="my-5"></div><!-- to give some space -->
-
-    <div class="row mx-3">
-        <div class="col mb-3 mb-sm-0">
-            <div class="card" id="temperature">
-                <img src="./images/temperature.png" class="card-img-top" alt="Temperature image" height="235">
-                <div class="card-body">
-                    <h5 class="card-title">Temperature</h5>
-                    <?php echo '<p class="card-text">House temperature is <b>' . $_SESSION['temperature'] . 'C.</b></p>' ?>
-                    <form action= "#temperature" method="post">
-                        <input class="btn btn-primary" type="submit" value="Heat up" name="temperatureUpButton">
-                        <input class="btn btn-primary" type="submit" value="Cool down" name="temperatureDownButton">
-                    </form>
-                </div>
+    <div class="card chart-container mx-5">
+        <div class="row justify-content-center">
+            <div class="col">
+                <canvas id="chart"></canvas>
             </div>
-        </div>
-        <div class="col">
-            <div class="card" id="airConditioning">
-                <?php echo '<img src="' . ($_SESSION['isAcOn'] ? "./images/workingFan.gif" : "./images/stoppedFan.png") . '" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">' ?>
-                <div class="card-body">
-                    <h5 class="card-title">Air Conditioning</h5>
-                    <p class="card-text">You can turn on/off AC.</p>
-                    <form action="#airConditioning" method="post">
-                        <input class="btn btn-primary" type="submit" value="Turn On" name="acOnButton">
-                        <input class="btn btn-primary" type="submit" value="Turn Off" name="acOffButton">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" id="airQuality">
-                <img src="./images/airPollution.png" class="card-img-top" alt="..." height="235">
-                <div class="card-body">
-                    <h5 class="card-title">Air Quality</h5>
-                    <?php echo '<p class="card-text">Air pollution in the house is <b>' . (1 - doubleval($_SESSION['indoorQuality'])) . '</b> .</p>' ?>
-                    <!-- TO GIVE SOME SPACE -->
-                    <div class="mb-5"></div>
-                    <!-- TO GIVE SOME SPACE -->
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" id="smartLock">
-                <?php echo '<img src="' . ($_SESSION['isSmartLocksLocked'] ? "./images/locked.png" : "./images/unlocked.png") . '" class="card-img-top" alt="..." height="235">' ?>
-                <div class="card-body">
-                    <h5 class="card-title">Control Smart Locks</h5>
-                    <p class="card-text">You can open/close your smart locks here.</p>
-                    <form action="#smartLock" method="post">
-                        <input class="btn btn-primary" type="submit" value="Lock" name="smartLocksLockedButton">
-                        <input class="btn btn-primary" type="submit" value="Unlock" name="smartLocksUnlockedButton">
-                    </form>
-                </div>
+            <div class="col">
+                <canvas id="second_chart"></canvas>
             </div>
         </div>
     </div>
+
     
-    <div class="my-5"></div><!-- to give some space -->
 
-    <div class="row mx-3">
-        <div class="col mb-3 mb-sm-0">
-            <div class="card" id="coffeeMachine">
-                <img src="./images/coffeeMachine.png" class="card-img-top" alt="..." height="235" width="432" style="object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">Coffee Machine</h5>
-                    <?php echo '<p class="card-text">You can start your coffee machine before you arrive home. It\'s now <b>' . ($_SESSION['isCoffeeMachineStarted'] ? "started" : "stopped") .'</b>.</p>' ?>
-                    <form action="coffeeMachine" method="post">
-                        <input class="btn btn-primary" type="submit" value="Start" name="coffeeMachineStartedButton">
-                        <input class="btn btn-primary" type="submit" value="Stop" name="coffeeMachineStoppedButton">
-                    </form>
-                </div>
-            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+        <img src="./images/help.png" class="rounded me-2" alt="..." height="20px"><br>
+        <strong class="me-auto">Do you need any help?</strong>
+        <small>10 seconds ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-        <div class="col">
-            <div class="card" id="energyConsumption">
-                <img src="./images/energyConsumption.svg" class="card-img-top" alt="..." height="235">
-                <div class="card-body">
-                    <h5 class="card-title">Energy Consumption</h5>
-                    <?php echo '<p class="card-text">Your energy consumption is <b>' . $_SESSION['energyConsumption'] . 'kWs</b> per month.</p>' ?>
-                    <!-- TO GIVE SOME SPACE -->
-                    <div class="mb-5"></div>
-                    <!-- TO GIVE SOME SPACE -->
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" id="waterQuality">
-                <img src="./images/waterQuality.png" class="card-img-top" alt="..." height="235">
-                <div class="card-body">
-                    <h5 class="card-title">Water Quality in Tank</h5>
-                    <?php echo '<p class="card-text">Your water quality is <b>' . $_SESSION['waterQuality'] . '</b>.</p>' ?>
-                    <!-- TO GIVE SOME SPACE -->
-                    <div class="mb-5"></div>
-                    <!-- TO GIVE SOME SPACE -->
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" id="waterTemperature">
-                <img src="./images/waterTemperature.png" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">
-                <div class="card-body">
-                    <h5 class="card-title">Water Temperature in Tank</h5>
-                    <?php echo '<p class="card-text">Your water tank is <b>' . $_SESSION['waterTemperature'] . 'C</b>.</p>' ?>
-                    <form action="#waterTemperature" method="post">
-                        <input class="btn btn-primary" type="submit" value="Heat Up" name="waterTemperatureIncreaseButton">
-                        <input class="btn btn-primary" type="submit" value="Cool Down" name="waterTemperatureDecreaseButton">
-                    </form>
-                </div>
-            </div>
+        <div class="toast-body">
+            Our professional team is ready to help you, click on this pop-up to start a talk.
         </div>
     </div>
-    
-    <div class="my-5"></div><!-- to give some space -->
-
-    <div class="row mx-3">
-        <div class="col">
-            <div class="card">
-                <?php echo '<img src="./images/' . $_SESSION['weatherForecast'] . '.png" class="card-img-top" alt="..." height="235" style="object-fit: contain;">' ?>
-                <div class="card-body">
-                    <h5 class="card-title">Weather Forecast</h5>
-                    <?php echo '<p class="card-text">Forecasted weather for tomorrow is <b>' . $_SESSION['weatherForecast'] . '</b>.</p>' ?>
-                    <!-- TO GIVE SOME SPACE -->
-                    <div class="mb-5"></div>
-                    <!-- TO GIVE SOME SPACE -->
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="./images/humidity.png" class="card-img-top" alt="..." height="235" style="object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">Humidity</h5>
-                    <?php echo '<p class="card-text">Humidity of the house is <b>' . $_SESSION['humidity'] . '</b>.</p>' ?>
-                    <!-- TO GIVE SOME SPACE -->
-                    <div class="mb-5"></div>
-                    <!-- TO GIVE SOME SPACE -->
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" id="emergencyAlert">
-                <?php echo '<img src="./images/' . ($_SESSION['isEmergency'] ? "emergency" : "nonEmergency") . '.png" class="card-img-top" alt="..." height="235" style="object-fit: contain">' ?>
-                <div class="card-body">
-                    <h5 class="card-title">Emergency Alert</h5>
-                    <?php echo '<p class="card-text">Emergency alert is ' . ($_SESSION['isEmergency'] ? "<b>ON</b>" : "<b>off</b>") . '.</p>' ?>
-                    <form action="#emergencyAlert" method="post">
-                        <input class="btn btn-primary" type="submit" value="Open" name="emergencyOnButton">
-                        <input class="btn btn-primary" type="submit" value="Close" name="emergencyOffButton">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" id="fanSpeed">
-                <img src="./images/fanSpeed.png" class="card-img-top" alt="..." height="235" style="object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">Fan Speed</h5>
-                    <?php echo '<p class="card-text">Fan speed is <b>' . $_SESSION['fanSpeed'] . 'RPMs</b>.</p>' ?>
-                    <form action="#fanSpeed" method="post">
-                    <input class="btn btn-primary" type="submit" value="Increase"  name="fanSpeedIncreaseButton">
-                    <input class="btn btn-primary" type="submit" value="Decrease" name="fanSpeedDecreaseButton">
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
+    <script>
+        var toastTrigger = document.getElementById('liveToastBtn')
+        var toastLiveExample = document.getElementById('liveToast')
+         toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastBootstrap.show();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script>
+      const ctx = document.getElementById("chart").getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Sunday", "Monday", "Tuesday",
+          "Wednesday", "Thursday", "Friday", "Saturday"],
+          datasets: [{
+            label: 'Last week',
+            backgroundColor: 'rgba(161, 198, 247, 1)',
+            borderColor: 'rgb(47, 128, 237)',
+            data: [3000, 4000, 2000, 5000, 8000, 9000, 2000],
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+              }
+            }]
+          }
+        },
+      });
+    </script>
 
+    <script>
+      const ctx2 = document.getElementById("second_chart").getContext('2d');
+      const myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ["rice", "yam", "tomato", "potato",
+          "beans", "maize", "oil"],
+          datasets: [{
+            label: 'food Items',
+            backgroundColor: 'rgba(161, 198, 247, 1)',
+            borderColor: 'rgb(47, 128, 237)',
+            data: [300, 400, 200, 500, 800, 900, 200],
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+              }
+            }]
+          }
+        },
+      });
+    </script>
 
     <?php include "../footer.php" ?>
 
