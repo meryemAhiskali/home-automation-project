@@ -9,13 +9,13 @@
     <title>Pricing</title>
 </head>
 <body>
-    <?php include "./navbar.php" ?>
+    <?php include "../navbar.php" ?>
 
     <div class="container">
         <div class="row align-items-center">
             <div class="col-4">
                 <div class="card" style="width: 18rem;">
-                <img src="./consumer/images/bronze.png" class="card-img-top" alt="Bronze">
+                <img src="./images/bronze.png" class="card-img-top" alt="Bronze">
                 <div class="card-body">
                     <h5 class="card-title">Free Membership</h5>
                     <p class="card-text">This membership is free, so you are not going to be able to use most of the crucial features.</p>
@@ -25,7 +25,7 @@
             </div>
             <div class="col-4">
                 <div class="card" style="width: 18rem;">
-                <img src="./consumer/images/silver.png" class="card-img-top" alt="Silver">
+                <img src="./images/silver.png" class="card-img-top" alt="Silver">
                 <div class="card-body">
                     <h5 class="card-title">Normal Membership</h5>
                     <p class="card-text">If you are an indivual, this membership is for you. You are good to go.</p>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-4">
                 <div class="card" style="width: 18rem;">
-                <img src="./consumer/images/premium.png" class="card-img-top" alt="Gold">
+                <img src="./images/premium.png" class="card-img-top" alt="Gold">
                 <div class="card-body">
                     <h5 class="card-title">Premium</h5>
                     <p class="card-text">You are the king.</p>
@@ -45,6 +45,6 @@
             </div>
         </div>
     </div>
-    <?php include "./footer.php" ?>
+    <?php include "../footer.php" ?>
 </body>
 </html>

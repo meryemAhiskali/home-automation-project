@@ -52,15 +52,6 @@
     ?>
     <?php include "../navbar.php" ?>
 
-        
-        <div class="ms-5">
-            <select name="Select Customer" id="select-customer">
-                <option value="Customer 1">Customer 1</option>
-                <option value="Customer 2">Customer 2</option>
-                <option value="Customer 3">Customer 3</option>    
-            </select>
-        </div>
-
         <br><br><br>
         <div class="container text-center">
             <div class="row">
