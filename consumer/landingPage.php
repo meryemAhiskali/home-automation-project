@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,6 @@
 </head>
 <body>
     <?php
-        session_start();
         if (!isset($_SESSION['isLightsOn'])) {
             $myfile = fopen("../keyValuePairs.txt", "r") or die("Unable to open file!");
             $data = fread($myfile,filesize("../keyValuePairs.txt"));

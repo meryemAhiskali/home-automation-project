@@ -1,3 +1,5 @@
+<?php session_start();//at first I wanted to use $GLOBALS but it wasn't stable across different requests(button clicks) ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,6 @@
     <link rel="icon" type="image/x-icon" href="/consumer/images/logo.png"></head>
 <body>
     <?php
-        session_start();//at first I wanted to use $GLOBALS but it wasn't stable across different requests(button clicks)
         /*
         These are my ideas to add as sensory data for my producer to produce:
             1. Lights                               DONE
