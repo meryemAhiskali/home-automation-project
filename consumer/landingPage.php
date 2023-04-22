@@ -89,7 +89,9 @@
             
             <div class="carousel-item">
                 <div class="card" id="airConditioning">
-                    <?php echo '<img src="' . ($_SESSION['isAcOn'] ? "./images/workingFan.gif" : "./images/stoppedFan.png") . '" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">' ?>
+                    <a href="#chart-3">
+                        <?php echo '<img src="' . ($_SESSION['isAcOn'] ? "./images/workingFan.gif" : "./images/stoppedFan.png") . '" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">' ?>
+                    </a>
                     <div class="card-body">
                         <div class="container text-center">
                             <h5 class="card-title">Air Conditioning</h5>
@@ -110,7 +112,9 @@
 
             <div class="carousel-item">
                 <div class="card">
+                    <a href="#chart-2">
                     <?php echo '<img src="' . ($_SESSION['isLightsOn'] ? "./images/lightsOn.png" : "./images/lightsOff.png") . '" class="card-img-top" alt="..." height="235" width="432" style="object-fit: contain;">' ?>
+                    </a>
                     <div class="card-body">
                         <div class="container text-center">
                             <h5 class="card-title">Switch Lights</h5>
@@ -152,14 +156,16 @@
 
             <div class="carousel-item">
                 <div class="card" id="temperature">
+                    <a href="#chart">
                     <img src="./images/temperature.png" class="card-img-top" alt="Temperature image" height="235" width="432" style="object-fit: contain;">
+                    </a>
                     <div class="card-body">
                         <div class="container text-center">
                             <h5 class="card-title">Temperature</h5>
                             <?php echo '<p class="card-text">House temperature is <b>' . $_SESSION['temperature'] . 'C.</b></p>' ?>
                         </div>
                         
-                        <form action="" method="post">
+                        <form action="#chart" method="post">
                             <div class="container text-center">
                                 <div class="row justify-content-between">
                                     <div class="col-6">
@@ -199,9 +205,11 @@
         </div>
         <div class="row justify-content-center">
             <div class="col">
+                <div class="text-center mt-3" style="font-size: 0.8rem; color: gray"><p>Energy Consumption</p></div>
                 <canvas id="chart-3"></canvas>
             </div>
             <div class="col">
+                <div class="text-center mt-3" style="font-size: 0.8rem; color: gray"><p>Weather of Last Year</p></div>
                 <canvas id="chart-4"></canvas>
             </div>
         </div>
@@ -263,13 +271,12 @@ Donec non venenatis libero, eget aliquet felis. Morbi quis ex efficitur, luctus 
       const myChart2 = new Chart(ctx2, {
         type: 'bar',
         data: {
-          labels: ["rice", "yam", "tomato", "potato",
-          "beans", "maize", "oil"],
+          labels: ["Last Decade", "This Year", "This Week", "Today"],
           datasets: [{
-            label: 'food Items',
+            label: 'Light Usage',
             backgroundColor: 'rgb(255, 180, 180)',
             borderColor: 'rgb(147, 132, 209)',
-            data: [300, 400, 200, 500, 800, 900, 200],
+            data: [650, 400, 200, 50],
           }]
         },
         options: {
@@ -289,13 +296,12 @@ Donec non venenatis libero, eget aliquet felis. Morbi quis ex efficitur, luctus 
         const myChart3 = new Chart(ctx3, {
             type: 'pie',
             data: {
-            labels: ["rice", "yam", "tomato", "potato",
-            "beans", "maize", "oil"],
+            labels: ["Last Decade", "This Year", "This Week", "Today"],
             datasets: [{
-                label: 'food Items',
+                label: 'Air Conditioning Energy Consumption',
                 backgroundColor: 'rgb(255, 222, 180)',
                 borderColor: 'rgb(255, 180, 180)',
-                data: [30, 40, 20, 50, 80, 90, 20],
+                data: [20, 30, 40, 50],
             }]
             },
         });
@@ -306,15 +312,11 @@ Donec non venenatis libero, eget aliquet felis. Morbi quis ex efficitur, luctus 
       const myChart4 = new Chart(ctx4, {
         type: 'doughnut',
         data: {
-          labels: ["rice", "yam", "tomato", "potato", "beans",
-           "maize", "oil"],
+          labels: ["sunny", "rainy", "cloudy", "stormy", "windy"],
           datasets: [{
-            label: 'food Items',
-            data: [30, 40, 20, 50, 80, 90, 20],
-            backgroundColor: ["#FDF4F5", "#E8A0BF", "#BA90C6",
-            "#C0DBEA", "#FDF4F5", "#E8A0BF", "#BA90C6",
-            "#C0DBEA", "#FDF4F5", "#E8A0BF", "#BA90C6",
-            "#C0DBEA", "#FDF4F5", "#C0DBEA", "#C0DBEA"]
+            label: 'Weather',
+            data: [30, 40, 20, 50, 80],//E8A0BF
+            backgroundColor: ["#FEFF86", "#B0DAFF", "#DAF5FF", "#576CBC", "#B9E9FC"]
           }]
         },
       });
