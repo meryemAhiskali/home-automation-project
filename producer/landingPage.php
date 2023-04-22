@@ -33,38 +33,101 @@
     ?>
     <?php include "../navbar.php" ?>
 
-        <br><br><br>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
-                <form method="POST">
-                    <input class="btn btn-primary" type="submit" value="Lights Toggle"  name="lightsToggleButton"><br><br>
-                    <input class="btn btn-primary" type="submit" value="AC Toggle" name="acToggleButton"><br><br>
-                    <input class="btn btn-primary" type="submit" value="Window Blind Toggle" name="windowBlindToggleButton"><br><br>
-                    <input class="btn btn-primary" type="submit" value="Emergency Alarm Toggle" name="emergencyToggleButton"><br><br>
-                </form>
-                </div>
-                <div class="col">
+        <div class="mt-4 mb-5 mx-5"><h2>Welcome Back, Meryem Ahıskalı<span class="badge bg-primary">Admin</span></h2></div>
+
+        <div class="shadow-lg p-3 mb-5 mx-5 bg-body rounded">Control Panel</div>
+
+        <div class="accordion mx-5" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Toggle Buttons
+                </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
                     <form method="POST">
-                        <input type="text" placeholder="Please enter temperature(as Celcius)..." name="temperature"><br><br>
-                        <input class="btn btn-primary" type="submit" name="temperatureButton"><br><br>
-                    </form>
+                        <div class="container">
+                            <div class="row justify-content-around">
+                                <div class="col text-center">
+                                    <input onclick="javascript:window.location.href='/navbar.php'" class="btn btn-primary" type="submit" value="Lights Toggle"  name="lightsToggleButton">
+                                    <?php echo '<p><b>' . ($_SESSION['isLightsOn'] ? "ON" : "OFF") . '</b></p>' ?>
+                                </div>
+                                <div class="col text-center">
+                                    <input class="btn btn-primary" type="submit" value="AC Toggle" name="acToggleButton">
+                                    <?php echo '<p><b>' . ($_SESSION['isAcOn'] ? "ON" : "OFF") . '</b></p>' ?>
+                                </div>
+                                <div class="col text-center">
+                                    <input class="btn btn-primary" type="submit" value="Window Blind Toggle" name="windowBlindToggleButton">
+                                    <?php echo '<p><b>' . ($_SESSION['isWindowBlindOn'] ? "ON" : "OFF") . '</b></p>' ?>
+                                </div>
+                                <div class="col text-center">
+                                    <input class="btn btn-primary" type="submit" value="Emergency Alarm Toggle" name="emergencyToggleButton">
+                                    <?php echo '<p><b>' . ($_SESSION['isEmergency'] ? "ON" : "OFF") . '</b></p>' ?>
+                                </div>
+                            </div>
+                        </div>
+                    </form>    
                 </div>
-                <div class="col">
-                    <form method="POST">
-                        <label for="weatherForecastId">Weather Forecast</label><br>
-                        <select name="weatherForecast" id="weatherForecastId">
-                            <option value="sunny">Sunny</option>
-                            <option value="rainy">Rainy</option>
-                            <option value="stormy">Stormy</option>
-                            <option value="windy">Windy</option>
-                            <option value="cloudy">Cloudy</option>
-                        </select>
-                        <input class="btn btn-primary" type="submit" name="weatherForecastButton" />
-                    </form>
                 </div>
             </div>
-        </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Change Temperature
+                </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <form method="POST">
+                                    <input type="text" placeholder="Please enter temperature(as Celcius)..." name="temperature" style="width: 18rem; height: 2.1rem;">
+                                    <input class="btn btn-primary" type="submit" value="Change" name="temperatureButton">
+                                    <input class="btn btn-primary" type="submit" value="Random" name="temperatureRandomButton">
+                                </form>
+                            </div>
+                            <div class="col-3">
+                                <?php echo '<p>' . "Right now, it is <b>" . $_SESSION['temperature'] . "C</b> degrees." . '</p>' ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Change Weather Forecast
+                </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <form method="POST">
+                                    <select name="weatherForecast" id="weatherForecastId" style="width: 18rem; height: 2.1rem;">
+                                        <option value="sunny">Sunny</option>
+                                        <option value="rainy">Rainy</option>
+                                        <option value="stormy">Stormy</option>
+                                        <option value="windy">Windy</option>
+                                        <option value="cloudy">Cloudy</option>
+                                    </select>
+                                    <input class="btn btn-primary" type="submit" name="weatherForecastButton" value="Change"/>
+                                    <input class="btn btn-primary" type="submit" name="weatherRandomButton" value="Random"/>
+                                </form>
+                            </div>
+                            <div class="col-3">
+                                <?php echo '<p>' . "Right now, it is <b>" . $_SESSION['weatherForecast'] . "</b>." . '</p>' ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
         
         <?php include '../toast.php' ?>
         <?php include "../footer.php" ?>
@@ -98,13 +161,22 @@
             alert("Weather forecast " . $_POST['weatherForecast'] . " selected.");
             $_SESSION['weatherForecast'] = $_POST['weatherForecast'];//weatherForecastButton
         }
+        if (isset($_POST['weatherRandomButton'])) {
+            $opt = array("sunny", "rainy", "cloudy", "stormy", "windy")[rand(0,4)];
+            alert("Weather forecast " . $opt . " selected.");
+            $_SESSION['weatherForecast'] = $opt;
+        }
+        if (isset($_POST['temperatureRandomButton'])) {
+            $_SESSION['temperature'] = rand(-20, 50);
+            alert("Temperature is set to " . ($_SESSION['temperature'] + ((rand(0,5) > 2) ? rand(-2, -1) : rand(1, 2))) . "C.");
+        }
         if (isset($_POST["temperatureButton"])) {
             //is_numeric function is used with strings to test if they are stringified representations of integers
             if (!is_numeric($_POST["temperature"])) {
                 throw new Exception("Temperature must be a number!");
             }
             $_SESSION['temperature'] = $_POST["temperature"];
-            alert("Temperature is set to " . $_SESSION['temperature'] . "C.");
+            alert("Temperature is set to " . ($_SESSION['temperature'] + ((rand(0,5) > 2) ? rand(-2, -1) : rand(1, 2))) . "C.");
         }
         //this part writes all custom global variables to a txt file where consumer can reach
         $myfile = fopen("../keyValuePairs.txt", "w");

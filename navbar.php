@@ -21,6 +21,15 @@
         }
         return false;
     }
+    function isProducer() {
+        $link = getCurrentUrl();
+        foreach (explode("/", $link) as $data) {
+            if ($data == "producer") {
+                return true;
+            }
+        }
+        return false;
+    }
     function isIndexPhp() {
         return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1) == "index.php";
     }
@@ -38,22 +47,31 @@
         <div class="d-flex me-5" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item mx-3">
-            <?php echo '<a class="nav-link active" aria-current="page" href="/' . (isConsumer() ? "consumer" : "producer") . '/landingPage.php"><b>Home</b></a>' ?>
+            <?php echo '<a class="nav-link" aria-current="page" href="/' . (isConsumer() ? "consumer" : "producer") . '/landingPage.php"><b>Home</b></a>' ?>
             </li>
             <li>
                 <?php echo (isConsumer() ? '<li class="nav-item mx-3"> <a class="nav-link" href="/consumer/features.php"><b>Features</b></a> </li>' : ''); ?>
             </li>
             <li>
-                <a class="nav-link active" aria-current="page" href="/consumer/about.php"><b>About</b></a>
+                <a class="nav-link" aria-current="page" href="/consumer/about.php"><b>About</b></a>
             </li>
             <li>
                 <li class="nav-item mx-3"> <a class="nav-link" href="/consumer/faqs.php"><b>FAQs</b></a> </li>
             </li>
-            <li>
-               <?php echo (isIndexPhp() ? '' : '<li class="nav-item mx-3"><button type="button" class="btn btn-outline-dark" onclick="javascript:window.location.href = \'/consumer/index.php\'">Log out</button></li>') ?>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <b>Language</b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">English</a></li>
+                    <li><a class="dropdown-item" href="#">Turkish</a></li>
+                </ul>
             </li>
-            <li class="nav-item ms-3">
-                <button type="button" class="btn btn-outline-dark">Language</button>
+            <li class="nav-item">
+                <?php echo '<a class="nav-link" href=\'/index.php\'><b>Return to ' . (isConsumer() ? "Producer" : (isProducer() ? "Consumer" : "Root")) . '</b></a>' ?>
+            </li>
+            <li>
+               <?php echo (isIndexPhp() ? '' : '<li class="nav-item mx-3"><button type="button" class="btn btn-outline-secondary shadow-sm d-sm d-block" onclick="javascript:window.location.href = \'/' . (isConsumer() ? "consumer" : "producer") . '/index.php\'">Log out</button></li>') ?>
             </li>
         </ul>
         </div>
