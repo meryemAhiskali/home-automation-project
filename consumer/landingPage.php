@@ -74,7 +74,9 @@
 
             <div class="carousel-item">
                 <div class="card">
+                    <a href="#chart-4">
                     <?php echo '<img src="./images/' . $_SESSION['weatherForecast'] . '.png" class="card-img-top" alt="..." height="235" style="object-fit: contain;">' ?>
+                    </a>
                     <div class="card-body">
                         <div class="container text-center">
                             <h5 class="card-title">Weather Forecast</h5>
