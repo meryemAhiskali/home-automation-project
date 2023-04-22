@@ -1,6 +1,6 @@
 isLightsOn=true
 temperature=19
 isAcOn=true
-isWindowBlindOn=false
+isWindowBlindOn=true
 weatherForecast=rainy
 isEmergency=true
