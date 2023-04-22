@@ -35,6 +35,10 @@
             }
             fclose($myfile);
         }
+
+        function alert($msg) {//you can use this function to alert the updates instead of echoing them at the bottom of the page
+            echo "<script type='text/javascript'>alert('$msg')</script>";
+        }
     ?>
     <?php include "../navbar.php" ?>
 
@@ -57,12 +61,9 @@
                         </div>
                         <form action="" method="post">
                             <div class="container text-center">
-                                <div class="row justify-content-between">
-                                    <div class="col-6">
-                                        <button class="btn btn-primary" type="submit" name="emergencyOnButton">Open</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn btn-primary" type="submit" name="emergencyOffButton">Close</button>
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <input class="btn btn-primary" type="submit" name="emergencyToggleButton" value="Toggle Alarm">
                                     </div>
                                 </div>
                             </div>
@@ -96,12 +97,9 @@
                         </div>
                         <form method="post">
                             <div class="container text-center">
-                                <div class="row justify-content-between">
-                                    <div class="col-6">
-                                        <input class="btn btn-primary" type="submit" value="Turn On" name="acOnButton">
-                                    </div>
-                                    <div class="col-6">
-                                        <input class="btn btn-primary" type="submit" value="Turn Off" name="acOffButton">
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <input class="btn btn-primary" type="submit" value="AC Toggle" name="acToggleButton">
                                     </div>
                                 </div>
                             </div>
@@ -120,12 +118,9 @@
                         </div>
                         <form action="" method="post">
                             <div class="container text-center">
-                                <div class="row justify-content-between">
-                                    <div class="col-6">
-                                        <button class="btn btn-primary" type="submit" name="lightsOnButton">Turn On</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn btn-primary" type="submit" name="lightsOffButton">Turn Off</button>
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <input class="btn btn-primary" type="submit" name="lightsToggleButton" value="Lights Toggle">
                                     </div>
                                 </div>
                             </div>
@@ -145,11 +140,8 @@
                         <form action="" method="post">
                             <div class="container text-center">
                                 <div class="row justify-content-between">
-                                    <div class="col-6">
-                                        <button class="btn btn-primary" type="submit" name="windowBlindOnButton">Open</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn btn-primary" type="submit" name="windowBlindOffButton">Close</button>
+                                    <div class="col">
+                                        <input class="btn btn-primary" type="submit" name="windowBlindToggleButton" value="Window Blind Toggle">
                                     </div>
                                 </div>
                             </div>
@@ -328,120 +320,38 @@ Donec non venenatis libero, eget aliquet felis. Morbi quis ex efficitur, luctus 
       });
     </script>
 
-    <script>
-      const ctx4 = document.getElementById("chart-4").getContext('2d');
-      const myChart4 = new Chart(ctx4, {
-        type: 'bar',
-        data: {
-          labels: ["rice", "yam", "tomato", "potato",
-          "beans", "maize", "oil"],
-          datasets: [{
-            label: 'food Items',
-            backgroundColor: 'rgb(253, 247, 195)',
-            borderColor: 'rgb(147, 132, 209)',
-            data: [300, 400, 200, 500, 800, 900, 200],
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true,
-              }
-            }]
-          }
-        },
-      });
-    </script>
-
     <?php include "../footer.php" ?>
 
     <?php
-        if (isset($_POST["lightsOnButton"]))
-        {
-            $_SESSION['isLightsOn'] = true;
-        }
-        if (isset($_POST["lightsOffButton"]))
-        {
-            $_SESSION['isLightsOn'] = false;
-        }
-        if (isset($_POST['lightBrightnessIncrease'])) {
-            if ($_SESSION['lightBrightness'] < 0.9) {
-                $_SESSION['lightBrightness'] = $_SESSION['lightBrightness'] + 0.1;
-            }
-        }
-        if (isset($_POST['lightBrightnessDecrease'])) {
-            if ($_SESSION['lightBrightness'] > 0.1) {
-                $_SESSION['lightBrightness'] = $_SESSION['lightBrightness'] - 0.1;
-            } 
-        }
-        if (isset($_POST['windowBlindOnButton'])) {
-            $_SESSION['isWindowBlindOn'] = true;
-        }
-        if (isset($_POST['windowBlindOffButton'])) {
-            $_SESSION['isWindowBlindOn'] = false;
-        }
         if (isset($_POST['temperatureUpButton'])) {
             $_SESSION['temperature'] = $_SESSION['temperature'] + 1; 
         }
         if (isset($_POST['temperatureDownButton'])) {
             $_SESSION['temperature'] = $_SESSION['temperature'] - 1; 
         }
-        if (isset($_POST['acOnButton'])) {
-            $_SESSION['isAcOn'] = true; 
+        if (isset($_POST["lightsToggleButton"]))
+        {
+            $_SESSION['isLightsOn'] = $_SESSION['isLightsOn'] ? false : true;
         }
-        if (isset($_POST['acOffButton'])) {
-            $_SESSION['isAcOn'] = false; 
+        if (isset($_POST["acToggleButton"]))
+        {
+            $_SESSION['isAcOn'] = $_SESSION['isAcOn'] ? false : true;
         }
-        if (isset($_POST['smartLocksLockedButton'])) {
-            $_SESSION['isSmartLocksLocked'] = true;
+        if (isset($_POST["windowBlindToggleButton"]))
+        {
+            $_SESSION['isWindowBlindOn'] = $_SESSION['isWindowBlindOn'] ? false : true;
         }
-        if (isset($_POST['smartLocksUnlockedButton'])) {
-            $_SESSION['isSmartLocksLocked'] = false;
-        }
-        if (isset($_POST['coffeeMachineStartedButton'])) {
-            $_SESSION['isCoffeeMachineStarted'] = true;
-        }
-        if (isset($_POST['coffeeMachineStoppedButton'])) {
-            $_SESSION['isCoffeeMachineStarted'] = false;
-        }
-        if (isset($_POST['waterTemperatureIncreaseButton'])) {
-            $_SESSION['waterTemperature'] = $_SESSION['waterTemperature'] + 1; 
-        }
-        if (isset($_POST['waterTemperatureDecreaseButton'])) {
-            $_SESSION['waterTemperature'] = $_SESSION['waterTemperature'] - 1; 
-        }
-        if (isset($_POST['emergencyOnButton'])) {
-            $_SESSION['isEmergency'] = true;
-        }
-        if (isset($_POST['emergencyOffButton'])) {
-            $_SESSION['isEmergency'] = false;
-        }
-        if (isset($_POST['fanSpeedIncreaseButton'])) {
-            $_SESSION['fanSpeed'] = $_SESSION['fanSpeed'] + 1; 
-        }
-        if (isset($_POST['fanSpeedDecreaseButton'])) {
-            if ($_SESSION['fanSpeed'] > 0) {
-                $_SESSION['fanSpeed'] = $_SESSION['fanSpeed'] - 1;
-            }
+        if (isset($_POST["emergencyToggleButton"]))
+        {
+            $_SESSION['isEmergency'] = $_SESSION['isEmergency'] ? false : true;
         }
 
         $myfile = fopen("../keyValuePairs.txt", "w");
         fwrite($myfile, ($_SESSION['isLightsOn'] ? "isLightsOn=true" : "isLightsOn=false") . "\n" . 
-                        "temperature=" . $_SESSION['temperature'] . "\n" .
+                        "temperature=" . $_SESSION['temperature'] . "\n" .//I use doublevar, because if you don't use it 0.30 and 0.3 will appear as if they aren't same things
                         ($_SESSION['isAcOn'] ? "isAcOn=true" : "isAcOn=false") . "\n" .
-                        "lightBrightness=" . doubleval($_SESSION['lightBrightness']) . "\n" . //I use doublevar, because if you don't use it 0.30 and 0.3 will appear as if they aren't same things
-                        "waterLevel=" . doubleval($_SESSION['waterLevel']) . "\n" .
                         ($_SESSION['isWindowBlindOn'] ? "isWindowBlindOn=true" : "isWindowBlindOn=false") . "\n" .
-                        "fanSpeed=" . strval($_SESSION['fanSpeed']) . "\n" .
-                        "indoorQuality=" . doubleval($_SESSION['indoorQuality']) . "\n" .
-                        ($_SESSION['isSmartLocksLocked'] ? "isSmartLocksLocked=true" : "isSmartLocksLocked=false") . "\n" .
-                        ($_SESSION['isCoffeeMachineStarted'] ? "isCoffeeMachineStarted=true" : "isCoffeeMachineStarted=false") . "\n" .
-                        "energyConsumption=" . $_SESSION['energyConsumption'] . "\n" .
-                        "waterQuality=" . $_SESSION['waterQuality'] . "\n" .
-                        "waterTemperature=" . $_SESSION['waterTemperature'] . "\n" .
                         "weatherForecast=" . $_SESSION['weatherForecast'] . "\n" .
-                        "humidity=" . $_SESSION['humidity'] . "\n" .
                         ($_SESSION['isEmergency'] ? "isEmergency=true" : "isEmergency=false")
                         );
         fclose($myfile);
