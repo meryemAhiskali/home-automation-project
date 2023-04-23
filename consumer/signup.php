@@ -13,16 +13,16 @@
 	<?php
 		$username = "";
 		$password = "";
-        $sirName  = "";
+        $surName  = "";
         $name     = "";
 
-		$nameErr = $passErr = $usernameErr = $sirNameErr = "";
+		$nameErr = $passErr = $usernameErr = $surNameErr = "";
 
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (empty($_POST["sirname"])) {
-				$sirNameErr = "SirName is required";
+            if (empty($_POST["surname"])) {
+				$surNameErr = "SurName is required";
 			  } else {
-				$sirName = test_input($_POST["sirname"]);
+				$surName = test_input($_POST["surname"]);
 			  }
             if (empty($_POST["name"])) {
 				$nameErr = "Name is required";
@@ -62,9 +62,9 @@
 						<?php echo '<span style="color: red;">' . $nameErr . '</span>' ?>
 					</div>
                     <div class="mb-3">
-						<label for="sirname" class="form-label">Sirname</label>
-						<input type="text" name="sirname" class="form-control" id="sirname">
-						<?php echo '<span style="color: red;">' . $sirNameErr . '</span>' ?>
+						<label for="surname" class="form-label">Surname</label>
+						<input type="text" name="surname" class="form-control" id="surname">
+						<?php echo '<span style="color: red;">' . $surNameErr . '</span>' ?>
 					</div>
 					<div class="mb-3">
 						<label for="username" class="form-label">Username</label>
