@@ -73,7 +73,7 @@
             <?php echo '<a class="nav-link" aria-current="page" href="' . $addpath . '/' . (isConsumer() ? "consumer" : "producer") . '/landingPage.php"><b>Home</b></a>' ?>
             </li>
             <li>
-                <?php echo (isConsumer() ? '<li class="nav-item mx-3"> <a class="nav-link" href="' . $addpath . '/consumer/features.php"><b>Features</b></a> </li>' : ''); ?>
+                <?php echo '<li class="nav-item mx-3"> <a class="nav-link" href="' . $addpath . '/consumer/features.php"><b>Features</b></a> </li>' ?>
             </li>
             <li>
                 <?php echo '<a class="nav-link" aria-current="page" href="' . $addpath . '/consumer/about.php"><b>About</b></a>' ?>
