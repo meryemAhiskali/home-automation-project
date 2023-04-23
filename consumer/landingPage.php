@@ -317,7 +317,7 @@ Donec non venenatis libero, eget aliquet felis. Morbi quis ex efficitur, luctus 
           labels: ["sunny", "rainy", "cloudy", "stormy", "windy"],
           datasets: [{
             label: 'Weather',
-            data: [30, 40, 20, 50, 80],//E8A0BF
+            data: [100, 110, 70, 55, 30],
             backgroundColor: ["#FEFF86", "#B0DAFF", "#DAF5FF", "#576CBC", "#B9E9FC"]
           }]
         },

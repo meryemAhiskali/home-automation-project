@@ -1,4 +1,4 @@
-isLightsOn=true
+isLightsOn=false
 temperature=20
 isAcOn=true
 isWindowBlindOn=true
