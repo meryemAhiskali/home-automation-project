@@ -81,15 +81,6 @@
             <li>
                 <?php echo '<li class="nav-item mx-3"> <a class="nav-link" href="' . $addpath . '/consumer/faqs.php"><b>FAQs</b></a> </li>' ?>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <b>Language</b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">English</a></li>
-                    <li><a class="dropdown-item" href="#">Turkish</a></li>
-                </ul>
-            </li>
             <li class="nav-item">
                 <?php echo '<a class="nav-link" href=\'' . $addpath . '/index.php\'><b>Return to ' . (isConsumer() ? "Producer" : (isProducer() ? "Consumer" : "Root")) . '</b></a>' ?>
             </li>
