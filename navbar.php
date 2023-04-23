@@ -30,8 +30,8 @@
         }
         return false;
     }
-    function isIndexPhp() {
-        return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1) == "index.php";
+    function isLoginPhp() {
+        return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1) == "login.php" || substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1) == "index.php";
     }
 ?>
 
@@ -71,7 +71,7 @@
                 <?php echo '<a class="nav-link" href=\'/index.php\'><b>Return to ' . (isConsumer() ? "Producer" : (isProducer() ? "Consumer" : "Root")) . '</b></a>' ?>
             </li>
             <li>
-               <?php echo (isIndexPhp() ? '' : '<li class="nav-item mx-3"><button type="button" class="btn btn-outline-secondary shadow-sm d-sm d-block" onclick="javascript:window.location.href = \'/' . (isConsumer() ? "consumer" : "producer") . '/index.' . (isConsumer() ? "html" : "php") . '\'">Log out</button></li>') ?>
+               <?php echo (isLoginPhp() ? '' : '<li class="nav-item mx-3"><button type="button" class="btn btn-outline-secondary shadow-sm d-sm d-block" onclick="javascript:window.location.href = \'/' . (isConsumer() ? "consumer" : "producer") . '/index.' . (isConsumer() ? "html" : "php") . '\'">Log out</button></li>') ?>
             </li>
         </ul>
         </div>
