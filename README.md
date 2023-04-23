@@ -18,10 +18,17 @@ This is a web-based home automation system that allows you to control your home 
 
 - After you copied the files to your htdocs, which you can find at /opt/lampp/htdocs in Linux or C:/xampp/htdocs in Windows, you can access the webpage at localhost/[YOUR_FOLDER_NAME]
 
-# Login Credentials
+## Login Credentials
 
 Consumer: user  - 1234<br>
 Producer: admin - 1234<br>
+
+## Details
+
+Pages like Features, About, FAQs are consumer targeted pages.
+Return to Root, Return to Producer, Return to Consumer buttons are made specifically for our teacher to navigate easier between consumer and producer.
+**Consumer landing page buttons are really working but you have refresh the page after pressing once.**
+We have used a txt file to mimic a database, we read and write updates to it.
 
 ## License
 
