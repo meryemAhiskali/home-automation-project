@@ -56,7 +56,7 @@
 					<button type="submit" class="btn btn-primary" value="Login">Submit</button>
 				</form>
 			</div>
-			<div class="col-4"><button class="btn btn-primary" style="margin: 0px" onclick="javascript:window.location.href='/producer/landingPage.php'">Skip Logging In</button></div>
+			<div class="col-4"><button class="btn btn-primary" style="margin: 0px" onclick="javascript:window.location.href='./landingPage.php'">Skip Logging In</button></div>
 		</div>
 	</div>
 

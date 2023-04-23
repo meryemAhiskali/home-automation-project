@@ -35,6 +35,29 @@
     }
 ?>
 
+<?php 
+    $x = __FILE__;
+    $x = explode(DIRECTORY_SEPARATOR, $x);
+    $ihtdocs = -1;
+    $ifooter = -1;
+    $addpath = "";
+    for ($i = 0; $i < count($x); $i++) {
+        //echo $i . " " . $x[$i] . ", ";
+        if ($x[$i] == "htdocs") {
+            $ihtdocs = $i;
+        }
+        if ($x[$i] == "navbar.php") {
+            $ifooter = $i;
+        }
+    }
+    //echo $ihtdocs . " " . $ifooter;
+    for ($i = $ihtdocs + 1; $i < $ifooter; ++$i) {
+        $addpath = $addpath . "/" . $x[$i];
+    }
+    //echo $addpath;
+    //echo $addpath . "/consumer/landingPage.php";
+?>
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -47,16 +70,16 @@
         <div class="d-flex me-5" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item mx-3">
-            <?php echo '<a class="nav-link" aria-current="page" href="/' . (isConsumer() ? "consumer" : "producer") . '/landingPage.php"><b>Home</b></a>' ?>
+            <?php echo '<a class="nav-link" aria-current="page" href="' . $addpath . '/' . (isConsumer() ? "consumer" : "producer") . '/landingPage.php"><b>Home</b></a>' ?>
             </li>
             <li>
-                <?php echo (isConsumer() ? '<li class="nav-item mx-3"> <a class="nav-link" href="/consumer/features.php"><b>Features</b></a> </li>' : ''); ?>
+                <?php echo (isConsumer() ? '<li class="nav-item mx-3"> <a class="nav-link" href="' . $addpath . '/consumer/features.php"><b>Features</b></a> </li>' : ''); ?>
             </li>
             <li>
-                <a class="nav-link" aria-current="page" href="/consumer/about.php"><b>About</b></a>
+                <?php echo '<a class="nav-link" aria-current="page" href="' . $addpath . '/consumer/about.php"><b>About</b></a>' ?>
             </li>
             <li>
-                <li class="nav-item mx-3"> <a class="nav-link" href="/consumer/faqs.php"><b>FAQs</b></a> </li>
+                <?php echo '<li class="nav-item mx-3"> <a class="nav-link" href="' . $addpath . '/consumer/faqs.php"><b>FAQs</b></a> </li>' ?>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,10 +91,10 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <?php echo '<a class="nav-link" href=\'/index.php\'><b>Return to ' . (isConsumer() ? "Producer" : (isProducer() ? "Consumer" : "Root")) . '</b></a>' ?>
+                <?php echo '<a class="nav-link" href=\'' . $addpath . '/index.php\'><b>Return to ' . (isConsumer() ? "Producer" : (isProducer() ? "Consumer" : "Root")) . '</b></a>' ?>
             </li>
             <li>
-               <?php echo (isLoginPhp() ? '' : '<li class="nav-item mx-3"><button type="button" class="btn btn-outline-secondary shadow-sm d-sm d-block" onclick="javascript:window.location.href = \'/' . (isConsumer() ? "consumer" : "producer") . '/index.' . (isConsumer() ? "html" : "php") . '\'">Log out</button></li>') ?>
+               <?php echo (isLoginPhp() ? '' : '<li class="nav-item mx-3"><button type="button" class="btn btn-outline-secondary shadow-sm d-sm d-block" onclick="javascript:window.location.href = \'' . $addpath .'/' . (isConsumer() ? "consumer" : "producer") . '/index.' . (isConsumer() ? "html" : "php") . '\'">Log out</button></li>') ?>
             </li>
         </ul>
         </div>
